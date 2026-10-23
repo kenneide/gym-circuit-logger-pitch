@@ -1,0 +1,17 @@
+{
+  "id": "./",
+  "name": "Northside Circuit Club",
+  "short_name": "Northside",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#f2f6fb",
+  "theme_color": "#f2f6fb",
+  "icons": [
+    {
+      "src": "icon.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
