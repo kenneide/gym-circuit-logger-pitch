@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="robots" content="noindex" />
     <title>Circuit Logger</title>
-    <script type="module" crossorigin src="./assets/index-DCG8gT9Q.js"></script>
-    <link rel="stylesheet" crossorigin href="./assets/index-C9Twicws.css">
+    <script type="module" crossorigin src="./assets/index-DTfZmR6X.js"></script>
+    <link rel="stylesheet" crossorigin href="./assets/index-BFxbaOrK.css">
   </head>
   <body>
     <header class="nav">
@@ -29,9 +29,7 @@
             <p class="lede" data-i18n="hero.lede"></p>
             <div class="actions">
               <a class="button" href="demo/" data-i18n="hero.try">Try the demo</a>
-              <a class="button ghost" href="demo/poster.html" data-i18n="hero.poster">
-                See the gym poster
-              </a>
+              <a class="button ghost" href="#rollout" data-i18n="hero.rollout">How rollout works</a>
             </div>
             <div class="scan">
               <div id="demo-qr" class="qr" role="img"></div>
@@ -50,22 +48,49 @@
 
       <section class="band">
         <div class="wrap">
-          <h2 data-i18n="members.title">How it works for members</h2>
+          <h2 data-i18n="paper.title">Better than the paper card</h2>
+          <p class="section-lede" data-i18n="paper.lede"></p>
+          <div class="compare" role="table" aria-labelledby="paper-head">
+            <div class="compare-row compare-head" role="row" id="paper-head">
+              <span role="columnheader" data-i18n="paper.head.paper"></span>
+              <span role="columnheader" data-i18n="paper.head.app"></span>
+            </div>
+            <div class="compare-row" role="row">
+              <span role="cell" data-i18n="paper.1.paper"></span>
+              <span role="cell" data-i18n="paper.1.app"></span>
+            </div>
+            <div class="compare-row" role="row">
+              <span role="cell" data-i18n="paper.2.paper"></span>
+              <span role="cell" data-i18n="paper.2.app"></span>
+            </div>
+            <div class="compare-row" role="row">
+              <span role="cell" data-i18n="paper.3.paper"></span>
+              <span role="cell" data-i18n="paper.3.app"></span>
+            </div>
+            <div class="compare-row" role="row">
+              <span role="cell" data-i18n="paper.4.paper"></span>
+              <span role="cell" data-i18n="paper.4.app"></span>
+            </div>
+            <div class="compare-row" role="row">
+              <span role="cell" data-i18n="paper.5.paper"></span>
+              <span role="cell" data-i18n="paper.5.app"></span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div class="wrap">
+          <h2 data-i18n="members.title">What your members do</h2>
           <p class="section-lede" data-i18n="members.lede"></p>
-          <ol class="steps">
-            <li>
-              <h3 data-i18n="members.1.title"></h3>
-              <p data-i18n="members.1.text"></p>
-            </li>
-            <li>
-              <h3 data-i18n="members.2.title"></h3>
-              <p data-i18n="members.2.text"></p>
-            </li>
-            <li>
-              <h3 data-i18n="members.3.title"></h3>
-              <p data-i18n="members.3.text"></p>
-            </li>
+          <ol class="steps five">
+            <li><h3 data-i18n="members.1.title"></h3><p data-i18n="members.1.text"></p></li>
+            <li><h3 data-i18n="members.2.title"></h3><p data-i18n="members.2.text"></p></li>
+            <li><h3 data-i18n="members.3.title"></h3><p data-i18n="members.3.text"></p></li>
+            <li><h3 data-i18n="members.4.title"></h3><p data-i18n="members.4.text"></p></li>
+            <li><h3 data-i18n="members.5.title"></h3><p data-i18n="members.5.text"></p></li>
           </ol>
+          <p class="callout" data-i18n="members.none"></p>
           <div class="shots">
             <figure data-shot="logging">
               <img alt="" width="390" height="844" />
@@ -87,7 +112,7 @@
         </div>
       </section>
 
-      <section>
+      <section class="band">
         <div class="wrap">
           <h2 data-i18n="features.title">What members get</h2>
           <div class="grid">
@@ -104,22 +129,109 @@
         </div>
       </section>
 
+      <section id="rollout">
+        <div class="wrap">
+          <h2 data-i18n="rollout.title">How we roll it out at your gym</h2>
+          <p class="section-lede" data-i18n="rollout.lede"></p>
+          <ol class="timeline">
+            <li>
+              <p class="who together" data-i18n="who.together"></p>
+              <h3 data-i18n="rollout.1.title"></h3>
+              <p data-i18n="rollout.1.text"></p>
+            </li>
+            <li>
+              <p class="who you" data-i18n="who.you"></p>
+              <h3 data-i18n="rollout.2.title"></h3>
+              <p data-i18n="rollout.2.text"></p>
+              <div class="checklist">
+                <div>
+                  <h4 data-i18n="send.brand.title"></h4>
+                  <ul>
+                    <li data-i18n="send.brand.name"></li>
+                    <li data-i18n="send.brand.logo"></li>
+                    <li data-i18n="send.brand.icon"></li>
+                    <li data-i18n="send.brand.colours"></li>
+                  </ul>
+                </div>
+                <div>
+                  <h4 data-i18n="send.machines.title"></h4>
+                  <ul>
+                    <li data-i18n="send.machines.name"></li>
+                    <li data-i18n="send.machines.weights"></li>
+                    <li data-i18n="send.machines.step"></li>
+                    <li data-i18n="send.machines.reps"></li>
+                    <li data-i18n="send.machines.tips"></li>
+                    <li data-i18n="send.machines.photo"></li>
+                  </ul>
+                </div>
+                <div>
+                  <h4 data-i18n="send.rest.title"></h4>
+                  <ul>
+                    <li data-i18n="send.rest.circuit"></li>
+                    <li data-i18n="send.rest.language"></li>
+                    <li data-i18n="send.rest.contact"></li>
+                    <li data-i18n="send.rest.domain"></li>
+                  </ul>
+                </div>
+              </div>
+            </li>
+            <li>
+              <p class="who we" data-i18n="who.we"></p>
+              <h3 data-i18n="rollout.3.title"></h3>
+              <p data-i18n="rollout.3.text"></p>
+            </li>
+            <li>
+              <p class="who together" data-i18n="who.together"></p>
+              <h3 data-i18n="rollout.4.title"></h3>
+              <p data-i18n="rollout.4.text"></p>
+              <ul class="ticks">
+                <li data-i18n="test.workout"></li>
+                <li data-i18n="test.skip"></li>
+                <li data-i18n="test.install"></li>
+                <li data-i18n="test.backup"></li>
+              </ul>
+            </li>
+            <li>
+              <p class="who we" data-i18n="who.weYou"></p>
+              <h3 data-i18n="rollout.5.title"></h3>
+              <div class="poster-step">
+                <div>
+                  <p data-i18n="rollout.5.text"></p>
+                  <ul class="ticks">
+                    <li data-i18n="poster.print"></li>
+                    <li data-i18n="poster.hang"></li>
+                    <li data-i18n="poster.live"></li>
+                  </ul>
+                  <a class="button ghost small" href="demo/poster.html" data-i18n="hero.poster">See the gym poster</a>
+                </div>
+                <figure class="poster-shot" data-shot="poster">
+                  <img alt="" width="762" height="826" />
+                  <figcaption data-i18n="shots.poster"></figcaption>
+                </figure>
+              </div>
+            </li>
+            <li>
+              <p class="who you" data-i18n="who.you"></p>
+              <h3 data-i18n="rollout.6.title"></h3>
+              <p data-i18n="rollout.6.text"></p>
+            </li>
+            <li>
+              <p class="who we" data-i18n="who.we"></p>
+              <h3 data-i18n="rollout.7.title"></h3>
+              <p data-i18n="rollout.7.text"></p>
+            </li>
+          </ol>
+        </div>
+      </section>
+
       <section class="band">
         <div class="wrap">
-          <h2 data-i18n="gym.title">What your gym does</h2>
-          <p class="section-lede" data-i18n="gym.lede"></p>
-          <ol class="steps setup">
-            <li><h3 data-i18n="gym.1.title"></h3><p data-i18n="gym.1.text"></p></li>
-            <li><h3 data-i18n="gym.2.title"></h3><p data-i18n="gym.2.text"></p></li>
-            <li><h3 data-i18n="gym.3.title"></h3><p data-i18n="gym.3.text"></p></li>
-            <li><h3 data-i18n="gym.4.title"></h3><p data-i18n="gym.4.text"></p></li>
-            <li><h3 data-i18n="gym.5.title"></h3><p data-i18n="gym.5.text"></p></li>
-          </ol>
-          <div class="hosting">
-            <h3 data-i18n="hosting.title"></h3>
-            <p class="hosting-flow" data-i18n="hosting.flow"></p>
-            <p data-i18n="hosting.files"></p>
-            <p data-i18n="hosting.data"></p>
+          <h2 data-i18n="tech.title">The technical part, in plain words</h2>
+          <p class="hosting-flow" data-i18n="tech.flow"></p>
+          <div class="grid">
+            <article><h3 data-i18n="tech.host.title"></h3><p data-i18n="tech.host.text"></p></article>
+            <article><h3 data-i18n="tech.phone.title"></h3><p data-i18n="tech.phone.text"></p></article>
+            <article><h3 data-i18n="tech.you.title"></h3><p data-i18n="tech.you.text"></p></article>
           </div>
         </div>
       </section>
@@ -139,6 +251,21 @@
       </section>
 
       <section class="band">
+        <div class="wrap">
+          <p class="eyebrow" data-i18n="ideas.label"></p>
+          <h2 data-i18n="ideas.title">Ideas we’re exploring</h2>
+          <p class="section-lede" data-i18n="ideas.lede"></p>
+          <div class="grid ideas">
+            <article><h3 data-i18n="ideas.plateau.title"></h3><p data-i18n="ideas.plateau.text"></p></article>
+            <article><h3 data-i18n="ideas.next.title"></h3><p data-i18n="ideas.next.text"></p></article>
+            <article><h3 data-i18n="ideas.summary.title"></h3><p data-i18n="ideas.summary.text"></p></article>
+            <article><h3 data-i18n="ideas.gym.title"></h3><p data-i18n="ideas.gym.text"></p></article>
+          </div>
+          <p class="muted" data-i18n="ideas.ask"></p>
+        </div>
+      </section>
+
+      <section>
         <div class="wrap two-col">
           <div>
             <h2 data-i18n="honest.title">Good to know</h2>
@@ -151,7 +278,9 @@
           </div>
           <div>
             <h2 data-i18n="faq.title">Questions</h2>
+            <details><summary data-i18n="faq.it.q"></summary><p data-i18n="faq.it.a"></p></details>
             <details><summary data-i18n="faq.hosting.q"></summary><p data-i18n="faq.hosting.a"></p></details>
+            <details><summary data-i18n="faq.domain.q"></summary><p data-i18n="faq.domain.a"></p></details>
             <details><summary data-i18n="faq.updates.q"></summary><p data-i18n="faq.updates.a"></p></details>
             <details><summary data-i18n="faq.address.q"></summary><p data-i18n="faq.address.a"></p></details>
             <details><summary data-i18n="faq.lost.q"></summary><p data-i18n="faq.lost.a"></p></details>
