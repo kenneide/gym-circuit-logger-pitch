@@ -5,9 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="color-scheme" content="light dark" />
     <title>Gym logger</title>
-    <script type="module" crossorigin src="./assets/main-A-Ngn89U.js"></script>
-    <link rel="modulepreload" crossorigin href="./assets/i18n-B8jVpGN2.js">
-    <link rel="stylesheet" crossorigin href="./assets/main-Bl7HlJQx.css">
+    <script type="module" crossorigin src="./assets/main-Cz6G41wg.js"></script>
+    <link rel="modulepreload" crossorigin href="./assets/i18n-DFvS2E57.js">
+    <link rel="stylesheet" crossorigin href="./assets/main-bxjgC16p.css">
     <link rel="manifest" href="manifest.webmanifest">
     <meta name="theme-color" content="#f2f6fb">
     <meta name="mobile-web-app-capable" content="yes">
@@ -128,21 +128,45 @@
           </button>
         </details>
         <details id="backup-help" hidden>
-          <summary data-i18n="backup.title">Back up your workouts</summary>
+          <summary data-i18n="backup.title">Your data</summary>
           <p class="muted" data-i18n="backup.help">
-            Workouts are stored only on this phone. Save a backup file now and then, and restore it
-            here after changing or resetting your phone.
+            Your workouts are stored in this browser on this device. There is no central workout
+            database or automatic cloud upload. You choose when to export a copy and where to save it.
           </p>
+          <div class="data-actions">
+            <div>
+              <button id="export-csv" type="button" data-i18n="backup.csv" aria-describedby="csv-help">
+                Export for spreadsheets (CSV)
+              </button>
+              <p id="csv-help" class="muted" data-i18n="backup.csvHelp"></p>
+            </div>
+            <div>
+              <button
+                id="export-backup"
+                type="button"
+                data-i18n="backup.save"
+                aria-describedby="full-backup-help"
+              >
+                Save full backup
+              </button>
+              <p id="full-backup-help" class="muted" data-i18n="backup.saveHelp"></p>
+            </div>
+            <div>
+              <button
+                id="restore-backup"
+                type="button"
+                data-i18n="backup.restore"
+                aria-describedby="restore-help"
+              >
+                Restore full backup
+              </button>
+              <p id="restore-help" class="muted" data-i18n="backup.restoreHelp"></p>
+            </div>
+          </div>
           <p id="backup-last" class="muted"></p>
+          <p class="muted" data-i18n="backup.exportHelp"></p>
           <p id="backup-protection" class="muted"></p>
           <p class="muted" data-i18n="backup.protectionHelp"></p>
-          <div class="backup-actions">
-            <button id="export-backup" type="button" data-i18n="backup.save">Save backup</button>
-            <button id="export-csv" type="button" data-i18n="backup.csv">Export CSV</button>
-            <button id="restore-backup" type="button" data-i18n="backup.restore">
-              Restore backup
-            </button>
-          </div>
           <input id="import-backup" type="file" accept="application/json,.json" hidden />
           <p id="backup-status" class="muted" role="status"></p>
         </details>
