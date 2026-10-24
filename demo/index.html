@@ -5,9 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="color-scheme" content="light dark" />
     <title>Gym logger</title>
-    <script type="module" crossorigin src="./assets/main-Cz6G41wg.js"></script>
-    <link rel="modulepreload" crossorigin href="./assets/i18n-DFvS2E57.js">
-    <link rel="stylesheet" crossorigin href="./assets/main-bxjgC16p.css">
+    <script type="module" crossorigin src="./assets/main-DVmtHY1V.js"></script>
+    <link rel="modulepreload" crossorigin href="./assets/i18n-GUavAHhl.js">
+    <link rel="stylesheet" crossorigin href="./assets/main-CDKeaCwa.css">
     <link rel="manifest" href="manifest.webmanifest">
     <meta name="theme-color" content="#f2f6fb">
     <meta name="mobile-web-app-capable" content="yes">
@@ -167,6 +167,21 @@
           <p class="muted" data-i18n="backup.exportHelp"></p>
           <p id="backup-protection" class="muted"></p>
           <p class="muted" data-i18n="backup.protectionHelp"></p>
+          <div id="backup-review" hidden role="region" aria-labelledby="backup-review-title">
+            <h3 id="backup-review-title" data-i18n="backup.review"></h3>
+            <p data-i18n="backup.ownFiles" class="muted"></p>
+            <label for="backup-mode" data-i18n="backup.mode"></label>
+            <select id="backup-mode">
+              <option value="merge" data-i18n="backup.merge"></option>
+              <option value="replace" data-i18n="backup.replace"></option>
+            </select>
+            <p id="backup-summary" role="status"></p>
+            <div id="backup-conflicts"></div>
+            <div class="backup-actions">
+              <button id="backup-apply" type="button" data-i18n="backup.apply"></button>
+              <button id="backup-cancel" type="button" data-i18n="backup.cancel"></button>
+            </div>
+          </div>
           <input id="import-backup" type="file" accept="application/json,.json" hidden />
           <p id="backup-status" class="muted" role="status"></p>
         </details>
@@ -177,9 +192,13 @@
             automatic weight increase. Save every set during your rest. “Saved” means the
             spreadsheet confirmed it. If saving fails, retry before leaving this screen.
           </p>
+          <button id="refresh-settings" type="button" data-i18n="workout.refresh" aria-describedby="check-saved-help">
+            Check saved data
+          </button>
+          <p id="check-saved-help" class="muted" data-i18n="help.checkSaved"></p>
           <p class="muted" id="form-help" data-i18n="help.form">
             You can also use your existing Google Form. Keep its Round field. Form entries appear
-            after refreshing. Logger entries take precedence for the same day, exercise and round.
+            after using Check saved data in Settings. Logger entries take precedence for the same day, exercise and round.
           </p>
           <p class="muted">
             <span data-i18n="help.skip"
@@ -228,6 +247,9 @@
       <button id="retry" class="secondary" data-i18n="workout.retry" hidden>
         Retry pending save
       </button>
+      <button id="refresh" class="secondary" data-i18n="workout.refresh" aria-describedby="status" hidden>
+        Check saved data
+      </button>
       <div id="start-options" hidden>
         <label for="starting-exercise" data-i18n="workout.startingExercise">Starting exercise</label>
         <select id="starting-exercise"></select>
@@ -247,7 +269,7 @@
           <div id="my-note" class="my-note" hidden>
             <div id="my-note-label" class="note-label" data-i18n="note.mine">My note</div>
             <p id="my-note-text" class="setup mine"></p>
-            <button id="note-edit" type="button" class="link" data-i18n="note.edit">Edit my note</button>
+            <button id="note-edit" type="button" class="link" data-i18n="note.edit">Edit note</button>
           </div>
           <div id="note-editor" class="note-editor" hidden>
             <label for="note-input" data-i18n="note.label">My note for this machine</label>
@@ -367,9 +389,6 @@
         <div id="checklist" class="checklist"></div>
         <button id="finish" class="secondary" data-i18n="workout.finish">Finish workout</button>
       </section>
-      <button id="refresh" class="secondary" data-i18n="workout.refresh">
-        Refresh saved sets
-      </button>
     </main>
   </body>
 </html>
