@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="light dark" />
+    <title>Gym logger</title>
+    <script type="module" crossorigin src="./assets/main-HcwDl-ux.js"></script>
+    <link rel="modulepreload" crossorigin href="./assets/i18n-DSC7KGPB.js">
+    <link rel="stylesheet" crossorigin href="./assets/main-CDKeaCwa.css">
+    <link rel="manifest" href="manifest.webmanifest">
+    <meta name="theme-color" content="#f5f5f5">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-title" content="HAGUEGYM">
+    <link rel="apple-touch-icon" href="icon.png">
+  </head>
+  <body>
+    <main>
+      <header class="brand-header">
+        <div class="brand-mark">
+          <img id="gym-logo" alt="" width="1024" height="576" hidden />
+          <div id="gym-name" class="brand-name" hidden></div>
+          <div id="gym-tagline" class="brand-tagline" hidden></div>
+        </div>
+        <button
+          id="settings-toggle"
+          class="secondary settings-toggle"
+          type="button"
+          aria-expanded="false"
+          aria-controls="settings-panel"
+          aria-label="Settings"
+          title="Settings"
+          data-i18n-attrs="aria-label:settings.title,title:settings.title"
+        >
+          <svg
+            viewBox="0 0 24 24"
+            width="24"
+            height="24"
+            fill="currentColor"
+            stroke="none"
+            aria-hidden="true"
+          >
+            <path
+              fill-rule="evenodd"
+              d="M9.6 2h4.8l.6 2.7 1.5.9 2.7-.8 2.4 4.2-2.1 1.9v2.2l2.1 1.9-2.4 4.2-2.7-.8-1.5.9-.6 2.7H9.6L9 19.3l-1.5-.9-2.7.8L2.4 15l2.1-1.9v-2.2L2.4 9l2.4-4.2 2.7.8L9 4.7 9.6 2ZM16 12a4 4 0 1 0-8 0 4 4 0 0 0 8 0Z"
+            />
+          </svg>
+        </button>
+        <button
+          id="progress-toggle"
+          class="secondary settings-toggle progress-toggle"
+          type="button"
+          aria-expanded="false"
+          aria-controls="progress-panel"
+          aria-label="Progress"
+          title="Progress"
+          data-i18n-attrs="aria-label:progress.title,title:progress.title"
+        >
+          <svg
+            viewBox="0 0 24 24"
+            width="24"
+            height="24"
+            fill="currentColor"
+            aria-hidden="true"
+          >
+            <rect x="3" y="12" width="4.5" height="9" rx="1.5" />
+            <rect x="9.75" y="7" width="4.5" height="14" rx="1.5" />
+            <rect x="16.5" y="3" width="4.5" height="18" rx="1.5" />
+          </svg>
+        </button>
+      </header>
+      <section
+        id="settings-panel"
+        class="card"
+        aria-label="Settings"
+        data-i18n-attrs="aria-label:settings.title"
+        hidden
+      >
+        <h2 data-i18n="settings.title">Settings</h2>
+        <div class="appearance">
+          <span data-i18n="settings.mode">Dark/Light Mode</span>
+          <button
+            id="theme-toggle"
+            class="theme-toggle"
+            type="button"
+            aria-label="Switch color mode"
+            title="Switch color mode"
+          >
+            ◐
+          </button>
+        </div>
+        <div class="color-theme-setting">
+          <label for="color-theme" data-i18n="settings.colorTheme">Color theme</label>
+          <select id="color-theme"></select>
+        </div>
+        <div class="color-theme-setting">
+          <label for="language" data-i18n="settings.language">Language</label>
+          <select id="language"></select>
+        </div>
+        <details id="circuit-help" hidden>
+          <summary data-i18n="circuit.title">Your circuit</summary>
+          <p class="muted" data-i18n="circuit.help">
+            Choose the machines, their order, rounds and target reps. Changes apply to workouts you
+            start afterwards; a workout already started today keeps its circuit.
+          </p>
+          <p id="circuit-source" class="muted small"></p>
+          <div class="color-theme-setting">
+            <label for="circuit-rounds" data-i18n="circuit.rounds">Rounds</label>
+            <select id="circuit-rounds"></select>
+          </div>
+          <ol id="circuit-list" class="circuit-list"></ol>
+          <div class="backup-actions">
+            <button id="circuit-save" type="button" class="primary" data-i18n="circuit.save">
+              Save circuit
+            </button>
+            <button id="circuit-reset" type="button" data-i18n="circuit.reset" hidden>
+              Use the gym’s circuit
+            </button>
+          </div>
+          <p id="circuit-status" class="muted" role="status"></p>
+        </details>
+        <details id="install-help" open hidden>
+          <summary data-i18n="install.title">Add to Home Screen</summary>
+          <p id="install-text" class="muted"></p>
+          <button id="install-app" type="button" data-i18n="install.button" hidden>
+            Install app
+          </button>
+        </details>
+        <details id="backup-help" hidden>
+          <summary data-i18n="backup.title">Your data</summary>
+          <p class="muted" data-i18n="backup.help">
+            Your workouts are stored in this browser on this device. There is no central workout
+            database or automatic cloud upload. You choose when to export a copy and where to save it.
+          </p>
+          <div class="data-actions">
+            <div>
+              <button id="export-csv" type="button" data-i18n="backup.csv" aria-describedby="csv-help">
+                Export for spreadsheets (CSV)
+              </button>
+              <p id="csv-help" class="muted" data-i18n="backup.csvHelp"></p>
+            </div>
+            <div>
+              <button
+                id="export-backup"
+                type="button"
+                data-i18n="backup.save"
+                aria-describedby="full-backup-help"
+              >
+                Save full backup
+              </button>
+              <p id="full-backup-help" class="muted" data-i18n="backup.saveHelp"></p>
+            </div>
+            <div>
+              <button
+                id="restore-backup"
+                type="button"
+                data-i18n="backup.restore"
+                aria-describedby="restore-help"
+              >
+                Restore full backup
+              </button>
+              <p id="restore-help" class="muted" data-i18n="backup.restoreHelp"></p>
+            </div>
+          </div>
+          <p id="backup-last" class="muted"></p>
+          <p class="muted" data-i18n="backup.exportHelp"></p>
+          <p id="backup-protection" class="muted"></p>
+          <p class="muted" data-i18n="backup.protectionHelp"></p>
+          <div id="backup-review" hidden role="region" aria-labelledby="backup-review-title">
+            <h3 id="backup-review-title" data-i18n="backup.review"></h3>
+            <p data-i18n="backup.ownFiles" class="muted"></p>
+            <label for="backup-mode" data-i18n="backup.mode"></label>
+            <select id="backup-mode">
+              <option value="merge" data-i18n="backup.merge"></option>
+              <option value="replace" data-i18n="backup.replace"></option>
+            </select>
+            <p id="backup-summary" role="status"></p>
+            <div id="backup-conflicts"></div>
+            <div class="backup-actions">
+              <button id="backup-apply" type="button" data-i18n="backup.apply"></button>
+              <button id="backup-cancel" type="button" data-i18n="backup.cancel"></button>
+            </div>
+          </div>
+          <input id="import-backup" type="file" accept="application/json,.json" hidden />
+          <p id="backup-status" class="muted" role="status"></p>
+        </details>
+        <details open>
+          <summary data-i18n="help.title">How saving works</summary>
+          <p id="saving-help" class="muted">
+            Weight starts from your latest recorded session; it is a starting point, not an
+            automatic weight increase. Save every set during your rest. “Saved” means the
+            device confirmed it. If saving fails, retry before leaving this screen.
+          </p>
+          <button id="refresh-settings" type="button" data-i18n="workout.refresh" aria-describedby="check-saved-help">
+            Check saved data
+          </button>
+          <p id="check-saved-help" class="muted" data-i18n="help.checkSaved"></p>
+          <p class="muted">
+            <span data-i18n="help.skip"
+              >“Skip” leaves this set unlogged. The checklist and finish check will remind you. One
+              workout per calendar day is supported.</span
+            >
+            <span id="connection-help">This page needs an internet connection; it cannot start
+              offline or send background reminders while your phone is locked.</span>
+          </p>
+        </details>
+      </section>
+      <section
+        id="progress-panel"
+        class="card"
+        aria-label="Progress"
+        data-i18n-attrs="aria-label:progress.title"
+        hidden
+      >
+        <h2 data-i18n="progress.title">Progress</h2>
+        <div
+          id="progress-ranges"
+          class="segmented"
+          role="group"
+          aria-label="Time range"
+          data-i18n-attrs="aria-label:progress.range"
+        ></div>
+        <div id="progress-body"></div>
+      </section>
+      <div class="top">
+        <div>
+          <h1 id="app-heading">Your workout</h1>
+          <div id="date" class="muted" data-i18n="app.loading">Loading your workout…</div>
+        </div>
+        <span id="count" class="pill">0 / —</span>
+      </div>
+      <progress id="progress" value="0"></progress>
+      <aside id="backup-reminder" hidden aria-live="polite">
+        <p data-i18n="backup.reminder"></p>
+        <p id="backup-reminder-status" role="status"></p>
+        <div class="backup-actions">
+          <button id="backup-reminder-save" type="button" data-i18n="backup.save"></button>
+          <button id="backup-snooze" type="button" data-i18n="backup.snooze"></button>
+        </div>
+      </aside>
+      <div id="status" role="status" aria-live="polite"></div>
+      <button id="retry" class="secondary" data-i18n="workout.retry" hidden>
+        Retry pending save
+      </button>
+      <button id="refresh" class="secondary" data-i18n="workout.refresh" aria-describedby="status" hidden>
+        Check saved data
+      </button>
+      <div id="start-options" hidden>
+        <label for="starting-exercise" data-i18n="workout.startingExercise">Starting exercise</label>
+        <select id="starting-exercise"></select>
+      </div>
+      <button id="start" class="primary" hidden>Start workout</button>
+      <section id="workout" hidden>
+        <div
+          id="rounds"
+          class="rounds"
+          aria-label="Rounds"
+          data-i18n-attrs="aria-label:workout.rounds"
+        ></div>
+        <div class="card">
+          <div id="position" class="muted"></div>
+          <h2 id="exercise"></h2>
+          <p id="setup" class="setup" hidden></p>
+          <div id="my-note" class="my-note" hidden>
+            <div id="my-note-label" class="note-label" data-i18n="note.mine">My note</div>
+            <p id="my-note-text" class="setup mine"></p>
+            <button id="note-edit" type="button" class="link" data-i18n="note.edit">Edit note</button>
+          </div>
+          <div id="note-editor" class="note-editor" hidden>
+            <label for="note-input" data-i18n="note.label">My note for this machine</label>
+            <textarea
+              id="note-input"
+              rows="3"
+              maxlength="500"
+              placeholder="e.g. Seat 5, back pad 2"
+              data-i18n-attrs="placeholder:note.placeholder"
+            ></textarea>
+            <div class="note-actions">
+              <button id="note-save" type="button" class="primary" data-i18n="note.save">Save note</button>
+              <button id="note-cancel" type="button" class="secondary" data-i18n="note.cancel">Cancel</button>
+            </div>
+          </div>
+          <div id="previous" class="previous muted">
+            <div class="previous-heading" data-i18n="workout.previous">Previous session</div>
+            <time id="previous-date"></time>
+            <div id="previous-sets" class="previous-sets"></div>
+          </div>
+          <div class="fields">
+            <div>
+              <label for="weight" data-i18n="workout.weight">Weight · kg</label>
+              <div class="stepper">
+                <button
+                  id="weightDown"
+                  aria-label="Decrease weight"
+                  data-i18n-attrs="aria-label:workout.weightDown"
+                >
+                  −
+                </button
+                ><input
+                  id="weight"
+                  type="number"
+                  step="0.5"
+                  min="0.5"
+                  max="1000"
+                  inputmode="decimal"
+                /><button
+                  id="weightUp"
+                  aria-label="Increase weight"
+                  data-i18n-attrs="aria-label:workout.weightUp"
+                >
+                  +
+                </button>
+              </div>
+            </div>
+            <div>
+              <label for="reps" data-i18n="workout.reps">Reps completed</label>
+              <div class="stepper">
+                <button
+                  id="repsDown"
+                  aria-label="Decrease reps"
+                  data-i18n-attrs="aria-label:workout.repsDown"
+                >
+                  −
+                </button
+                ><input
+                  id="reps"
+                  type="number"
+                  min="1"
+                  max="100"
+                  step="1"
+                  inputmode="numeric"
+                /><button
+                  id="repsUp"
+                  aria-label="Increase reps"
+                  data-i18n-attrs="aria-label:workout.repsUp"
+                >
+                  +
+                </button>
+              </div>
+            </div>
+          </div>
+          <div id="effort" class="effort" data-selected="false">
+            <div class="effort-heading">
+              <label for="difficulty" data-i18n="effort.label">Effort · optional</label>
+              <output id="difficulty-value" for="difficulty">—</output>
+            </div>
+            <input
+              id="difficulty"
+              type="range"
+              min="1"
+              max="3"
+              step="1"
+              value="2"
+              list="effort-stops"
+              aria-valuetext="No effort selected"
+              aria-describedby="effort-help"
+            />
+            <datalist id="effort-stops">
+              <option value="1" label="Easy" data-i18n-attrs="label:effort.easy"></option>
+              <option value="2" label="Moderate" data-i18n-attrs="label:effort.moderate"></option>
+              <option value="3" label="Hard" data-i18n-attrs="label:effort.hard"></option>
+            </datalist>
+            <div class="effort-labels" aria-hidden="true">
+              <span data-i18n="effort.easy">Easy</span><span data-i18n="effort.moderate">Moderate</span
+              ><span data-i18n="effort.hard">Hard</span>
+            </div>
+          </div>
+          <p id="effort-help" class="muted small" data-i18n="effort.help">
+            Tap the selected effort again to clear.
+          </p>
+          <p id="hint" class="muted small"></p>
+          <button id="save" class="primary">Save & next</button>
+          <div id="controls">
+            <button id="skip" class="secondary" data-i18n="workout.skip">Skip</button
+            ><button id="delete" class="secondary" data-i18n="workout.remove" hidden>
+              Remove entry
+            </button>
+          </div>
+        </div>
+        <div class="top">
+          <strong data-i18n="workout.savedSets">Saved sets</strong
+          ><span class="muted small" data-i18n="workout.tapToEdit">Tap any set to edit</span>
+        </div>
+        <div id="checklist" class="checklist"></div>
+        <button id="finish" class="secondary" data-i18n="workout.finish">Finish workout</button>
+      </section>
+    </main>
+  </body>
+</html>

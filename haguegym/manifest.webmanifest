@@ -1,0 +1,17 @@
+{
+  "id": "./",
+  "name": "HAGUEGYM",
+  "short_name": "HAGUEGYM",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#f5f5f5",
+  "theme_color": "#f5f5f5",
+  "icons": [
+    {
+      "src": "icon.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

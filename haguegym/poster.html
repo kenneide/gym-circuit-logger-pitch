@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Poster</title>
+    <script type="module" crossorigin src="./assets/poster-CgXsuke9.js"></script>
+    <link rel="modulepreload" crossorigin href="./assets/i18n-DSC7KGPB.js">
+    <link rel="stylesheet" crossorigin href="./assets/poster-Csqn7Sxn.css">
+    <link rel="manifest" href="manifest.webmanifest">
+    <meta name="theme-color" content="#f5f5f5">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-title" content="HAGUEGYM">
+    <link rel="apple-touch-icon" href="icon.png">
+  </head>
+  <body class="poster">
+    <main>
+      <div class="poster-tools">
+        <label for="poster-language" data-i18n="settings.language">Language</label>
+        <select id="poster-language"></select>
+        <button id="poster-print" type="button" data-i18n="poster.print">Print poster</button>
+      </div>
+      <article class="poster-sheet">
+        <img id="poster-logo" alt="" hidden />
+        <h1 id="poster-gym"></h1>
+        <p class="poster-headline" data-i18n="poster.headline">Log your circuit on your phone</p>
+        <div id="poster-qr" class="poster-qr" role="img"></div>
+        <p id="poster-url" class="poster-url"></p>
+        <ol class="poster-steps">
+          <li data-i18n="poster.scan">Scan the code with your phone camera.</li>
+          <li data-i18n="poster.install">
+            Add it to your home screen: on iPhone tap Share, then Add to Home Screen; on Android
+            choose Install app.
+          </li>
+          <li data-i18n="poster.use">Open it at every workout and save each set during your rest.</li>
+        </ol>
+        <p class="poster-privacy" data-i18n="poster.privacy">
+          No account or app store needed. Your workouts stay on your phone and it works offline.
+        </p>
+      </article>
+    </main>
+  </body>
+</html>

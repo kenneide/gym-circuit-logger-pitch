@@ -1,6 +1,6 @@
 const PREFIX = "gym-logger-demo-";
-const CACHE = "gym-logger-demo-448507b53da8";
-const FILES = ["./","assets/i18n-CD-PkrPu.js","assets/main-CDKeaCwa.css","assets/main-Cm604hsm.js","assets/poster-Csqn7Sxn.css","assets/poster-DLlSqriz.js","icon.png","manifest.webmanifest","poster.html"];
+const CACHE = "gym-logger-demo-c1cdd306f7bd";
+const FILES = ["./","assets/i18n-DTM-UsUQ.js","assets/main-B3QahezP.js","assets/main-CDKeaCwa.css","assets/poster-Csqn7Sxn.css","assets/poster-h9GmEBFX.js","icon.png","manifest.webmanifest","poster.html"];
 self.addEventListener('install', (event) => {
   event.waitUntil(caches.open(CACHE).then((cache) => cache.addAll(FILES)).then(() => self.skipWaiting()));
 });
