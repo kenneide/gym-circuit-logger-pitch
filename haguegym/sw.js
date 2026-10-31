@@ -1,6 +1,6 @@
 const PREFIX = "gym-logger-haguegym-";
-const CACHE = "gym-logger-haguegym-59517359aa0c";
-const FILES = ["./","assets/i18n-wMKEQ1gG.js","assets/main-BqfASP4n.js","assets/main-DSUFcY13.css","assets/poster-BlbmT8Sg.js","assets/poster-Csqn7Sxn.css","icon.png","manifest.webmanifest","poster.html"];
+const CACHE = "gym-logger-haguegym-429967af9aa1";
+const FILES = ["./","assets/i18n-CdSKdrny.js","assets/main-Cu-zD2i6.js","assets/main-DSUFcY13.css","assets/poster-BDN-2loV.js","assets/poster-Csqn7Sxn.css","icon.png","manifest.webmanifest","poster.html"];
 self.addEventListener('install', (event) => {
   event.waitUntil(caches.open(CACHE).then((cache) => cache.addAll(FILES)).then(() => self.skipWaiting()));
 });

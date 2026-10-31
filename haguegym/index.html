@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="color-scheme" content="light dark" />
     <title>Gym logger</title>
-    <script type="module" crossorigin src="./assets/main-BqfASP4n.js"></script>
-    <link rel="modulepreload" crossorigin href="./assets/i18n-wMKEQ1gG.js">
+    <script type="module" crossorigin src="./assets/main-Cu-zD2i6.js"></script>
+    <link rel="modulepreload" crossorigin href="./assets/i18n-CdSKdrny.js">
     <link rel="stylesheet" crossorigin href="./assets/main-DSUFcY13.css">
     <link rel="manifest" href="manifest.webmanifest">
     <meta name="theme-color" content="#f5f5f5">
@@ -187,6 +187,7 @@
         </details>
         <details open>
           <summary data-i18n="help.title">How saving works</summary>
+          <p class="muted" data-i18n="progression.help"></p>
           <p id="saving-help" class="muted">
             Weight starts from your latest recorded session; it is a starting point, not an
             automatic weight increase. Save every set during your rest. “Saved” means the
@@ -340,6 +341,9 @@
               </div>
             </div>
           </div>
+          <label for="form" data-i18n="form.label"></label>
+          <select id="form"><option value="" data-i18n="form.none"></option><option value="good" data-i18n="form.good"></option><option value="compromised" data-i18n="form.compromised"></option></select>
+          <p id="progression-hint" class="muted small"></p>
           <div id="effort" class="effort" data-selected="false">
             <div class="effort-heading">
               <label for="difficulty" data-i18n="effort.label">Effort · optional</label>
