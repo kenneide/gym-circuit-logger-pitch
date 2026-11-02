@@ -5,9 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="color-scheme" content="light dark" />
     <title>Gym logger</title>
-    <script type="module" crossorigin src="./assets/main-Cu-zD2i6.js"></script>
-    <link rel="modulepreload" crossorigin href="./assets/i18n-CdSKdrny.js">
-    <link rel="stylesheet" crossorigin href="./assets/main-DSUFcY13.css">
+    <script type="module" crossorigin src="./assets/main-DM86bP21.js"></script>
+    <link rel="modulepreload" crossorigin href="./assets/i18n-6TFKrTxT.js">
+    <link rel="stylesheet" crossorigin href="./assets/main-BadTq8fr.css">
     <link rel="manifest" href="manifest.webmanifest">
     <meta name="theme-color" content="#f5f5f5">
     <meta name="mobile-web-app-capable" content="yes">
@@ -29,6 +29,7 @@
           type="button"
           aria-expanded="false"
           aria-controls="settings-panel"
+          aria-haspopup="dialog"
           aria-label="Settings"
           title="Settings"
           data-i18n-attrs="aria-label:settings.title,title:settings.title"
@@ -53,6 +54,7 @@
           type="button"
           aria-expanded="false"
           aria-controls="progress-panel"
+          aria-haspopup="dialog"
           aria-label="Progress"
           title="Progress"
           data-i18n-attrs="aria-label:progress.title,title:progress.title"
@@ -70,14 +72,17 @@
           </svg>
         </button>
       </header>
-      <section
+      <dialog
         id="settings-panel"
-        class="card"
+        class="app-panel sheet"
         aria-label="Settings"
         data-i18n-attrs="aria-label:settings.title"
         hidden
       >
-        <h2 data-i18n="settings.title">Settings</h2>
+        <div class="panel-heading">
+          <h2 data-i18n="settings.title">Settings</h2>
+          <button id="settings-close" class="panel-close" type="button" data-i18n-attrs="aria-label:ui.close">×</button>
+        </div>
         <div class="appearance">
           <span data-i18n="settings.mode">Dark/Light Mode</span>
           <button
@@ -206,15 +211,18 @@
               offline or send background reminders while your phone is locked.</span>
           </p>
         </details>
-      </section>
-      <section
+      </dialog>
+      <dialog
         id="progress-panel"
-        class="card"
+        class="app-panel full-view"
         aria-label="Progress"
         data-i18n-attrs="aria-label:progress.title"
         hidden
       >
-        <h2 data-i18n="progress.title">Progress</h2>
+        <div class="panel-heading">
+          <h2 data-i18n="progress.title">Progress</h2>
+          <button id="progress-close" class="panel-close" type="button" data-i18n-attrs="aria-label:ui.close">×</button>
+        </div>
         <div
           id="progress-ranges"
           class="segmented"
@@ -223,7 +231,7 @@
           data-i18n-attrs="aria-label:progress.range"
         ></div>
         <div id="progress-body"></div>
-      </section>
+      </dialog>
       <div class="top">
         <div>
           <h1 id="app-heading">Your workout</h1>
@@ -253,40 +261,10 @@
       </div>
       <button id="start" class="primary" hidden>Start workout</button>
       <section id="workout" hidden>
-        <div
-          id="rounds"
-          class="rounds"
-          aria-label="Rounds"
-          data-i18n-attrs="aria-label:workout.rounds"
-        ></div>
-        <div class="card">
+        <button id="circuit-toggle" class="circuit-toggle" type="button" aria-haspopup="dialog" data-i18n="ui.circuit"></button>
+        <div class="card exercise-card" id="exercise-card">
           <div id="position" class="muted"></div>
           <h2 id="exercise"></h2>
-          <p id="setup" class="setup" hidden></p>
-          <div id="my-note" class="my-note" hidden>
-            <div id="my-note-label" class="note-label" data-i18n="note.mine">My note</div>
-            <p id="my-note-text" class="setup mine"></p>
-            <button id="note-edit" type="button" class="link" data-i18n="note.edit">Edit note</button>
-          </div>
-          <div id="note-editor" class="note-editor" hidden>
-            <label for="note-input" data-i18n="note.label">My note for this machine</label>
-            <textarea
-              id="note-input"
-              rows="3"
-              maxlength="500"
-              placeholder="e.g. Seat 5, back pad 2"
-              data-i18n-attrs="placeholder:note.placeholder"
-            ></textarea>
-            <div class="note-actions">
-              <button id="note-save" type="button" class="primary" data-i18n="note.save">Save note</button>
-              <button id="note-cancel" type="button" class="secondary" data-i18n="note.cancel">Cancel</button>
-            </div>
-          </div>
-          <div id="previous" class="previous muted">
-            <div class="previous-heading" data-i18n="workout.previous">Previous session</div>
-            <time id="previous-date"></time>
-            <div id="previous-sets" class="previous-sets"></div>
-          </div>
           <div class="fields">
             <div>
               <label for="weight" data-i18n="workout.weight">Weight · kg</label>
@@ -341,8 +319,18 @@
               </div>
             </div>
           </div>
-          <label for="form" data-i18n="form.label"></label>
-          <select id="form"><option value="" data-i18n="form.none"></option><option value="good" data-i18n="form.good"></option><option value="compromised" data-i18n="form.compromised"></option></select>
+          <div id="form-control" class="effort" data-selected="false">
+            <div class="effort-heading">
+              <label for="form" data-i18n="form.label"></label>
+              <output id="form-value" for="form">—</output>
+            </div>
+            <input id="form" type="range" min="1" max="2" step="1" value="1" aria-describedby="form-slider-help" />
+            <div class="effort-labels" aria-hidden="true">
+              <span data-i18n="form.good"></span>
+              <span data-i18n="form.compromised"></span>
+            </div>
+            <p id="form-slider-help" class="muted small" data-i18n="form.help"></p>
+          </div>
           <p id="progression-hint" class="muted small"></p>
           <div id="effort" class="effort" data-selected="false">
             <div class="effort-heading">
@@ -373,7 +361,38 @@
           <p id="effort-help" class="muted small" data-i18n="effort.help">
             Tap the selected effort again to clear.
           </p>
+          <div id="setup-context" class="setup-context">
+            <p id="setup" class="setup" hidden></p>
+            <div id="my-note" class="my-note" hidden>
+              <div id="my-note-label" class="note-label" data-i18n="note.mine">My note</div>
+              <p id="my-note-text" class="setup mine"></p>
+              <button id="note-edit" type="button" class="link" data-i18n="note.edit">Edit note</button>
+            </div>
+            <div id="note-editor" class="note-editor" hidden>
+              <label for="note-input" data-i18n="note.label">My note for this machine</label>
+              <textarea
+                id="note-input"
+                rows="3"
+                maxlength="500"
+                placeholder="e.g. Seat 5, back pad 2"
+                data-i18n-attrs="placeholder:note.placeholder"
+              ></textarea>
+              <div class="note-actions">
+                <button id="note-save" type="button" class="primary" data-i18n="note.save">Save note</button>
+                <button id="note-cancel" type="button" class="secondary" data-i18n="note.cancel">Cancel</button>
+              </div>
+            </div>
+            <button id="notes-expand" type="button" aria-controls="setup-context" class="link" aria-expanded="false" data-i18n="ui.showNotes"></button>
+          </div>
+          <div id="previous" class="previous muted">
+            <div class="previous-heading" data-i18n="workout.previous">Previous session</div>
+            <time id="previous-date"></time>
+            <div id="previous-sets" class="previous-sets"></div>
+          </div>
           <p id="hint" class="muted small"></p>
+        </div>
+        <div id="action-bar" class="action-bar">
+          <span id="save-feedback" class="save-feedback" role="status"></span>
           <button id="save" class="primary">Save & next</button>
           <div id="controls">
             <button id="skip" class="secondary" data-i18n="workout.skip">Skip</button
@@ -382,17 +401,31 @@
             </button>
           </div>
         </div>
+        <dialog id="circuit-panel" class="app-panel sheet" aria-labelledby="circuit-title" hidden>
+        <div class="panel-heading">
+          <h2 id="circuit-title" data-i18n="ui.circuit"></h2>
+          <button id="circuit-close" class="panel-close" type="button" data-i18n-attrs="aria-label:ui.close">×</button>
+        </div>
+        <div
+          id="rounds"
+          class="rounds"
+          aria-label="Rounds"
+          data-i18n-attrs="aria-label:workout.rounds"
+        ></div>
         <div class="top">
           <strong data-i18n="workout.savedSets">Saved sets</strong
           ><span class="muted small" data-i18n="workout.tapToEdit">Tap any set to edit</span>
         </div>
         <div id="checklist" class="checklist"></div>
+        </dialog>
         <button id="finish" class="secondary" data-i18n="workout.finish">Finish workout</button>
       </section>
     </main>
     <dialog id="completion-dialog" aria-labelledby="completion-title">
+      <div class="completion-mark" aria-hidden="true"><svg viewBox="0 0 48 48" fill="none"><path d="m13 24 8 8 15-16" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
       <h2 id="completion-title" data-i18n="completion.title"></h2>
       <p data-i18n="completion.message"></p>
+      <p id="completion-summary" class="completion-summary"></p>
       <button id="completion-finish" data-i18n="completion.finish"></button>
       <button id="completion-review" data-i18n="completion.review"></button>
     </dialog>
