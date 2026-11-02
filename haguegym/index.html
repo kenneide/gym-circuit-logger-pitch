@@ -5,10 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="color-scheme" content="light dark" />
     <title>Gym logger</title>
-    <script type="module" crossorigin src="./assets/main-5LYpQEAA.js"></script>
-    <link rel="modulepreload" crossorigin href="./assets/i18n-DYhY93xV.js">
-    <link rel="stylesheet" crossorigin href="./assets/main-BLnD-UY8.css">
-    <meta name="app-build" content="58e3c792-56cc-4b32-a165-b89e941e21e8">
+    <script type="module" crossorigin src="./assets/main-JpfqDFUw.js"></script>
+    <link rel="modulepreload" crossorigin href="./assets/i18n-Dcg59Spg.js">
+    <link rel="stylesheet" crossorigin href="./assets/main-CXWcbKP9.css">
+    <meta name="app-build" content="987a9544-2cdd-421a-9959-901a298d97f1">
     <link rel="manifest" href="manifest.webmanifest">
     <meta name="theme-color" content="#f5f5f5">
     <meta name="mobile-web-app-capable" content="yes">
@@ -80,14 +80,14 @@
       </aside>
       <dialog
         id="settings-panel"
-        class="app-panel sheet"
+        class="app-panel full-view"
         aria-label="Settings"
         data-i18n-attrs="aria-label:settings.title"
         hidden
       >
         <div class="panel-heading">
           <h2 data-i18n="settings.title">Settings</h2>
-          <button id="settings-close" class="panel-close" type="button" data-i18n-attrs="aria-label:ui.close">×</button>
+          <button id="settings-close" class="panel-close" type="button" data-i18n-attrs="aria-label:ui.close"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m6 6 12 12M18 6 6 18"/></svg></button>
         </div>
         <div class="appearance">
           <span data-i18n="settings.mode">Dark/Light Mode</span>
@@ -109,14 +109,30 @@
           <label for="language" data-i18n="settings.language">Language</label>
           <select id="language"></select>
         </div>
+        <button id="circuit-editor-toggle" aria-haspopup="dialog" aria-controls="circuit-editor-panel" class="settings-link" type="button" data-i18n="circuit.title" hidden></button>
+        <button id="data-toggle" aria-haspopup="dialog" aria-controls="data-panel" class="settings-link" type="button" data-i18n="backup.title" hidden></button>
+        <details id="install-help" open hidden>
+          <summary data-i18n="install.title">Add to Home Screen</summary>
+          <p id="install-text" class="muted"></p>
+          <button id="install-app" type="button" data-i18n="install.button" hidden>
+            Install app
+          </button>
+        </details>
         <section id="update-settings" hidden>
-          <p id="app-build" class="muted small"></p>
+          <div class="version-row"><span data-i18n="settings.version"></span><code id="app-build"></code><button id="copy-build" type="button" data-i18n="settings.copyVersion"></button></div><p id="copy-build-status" role="status"></p>
           <button id="check-updates" type="button" data-i18n="update.check"></button>
           <button id="update-settings-now" type="button" data-i18n="update.now" hidden></button>
           <p id="update-status" class="muted" role="status"></p>
         </section>
-        <details id="circuit-help" hidden>
-          <summary data-i18n="circuit.title">Your circuit</summary>
+      </dialog>
+      <dialog id="circuit-editor-panel" class="app-panel full-view" aria-label="Your circuit" data-i18n-attrs="aria-label:circuit.title" hidden>
+        <div class="panel-heading">
+          <button id="circuit-editor-back" class="panel-back" type="button" data-i18n="settings.back"></button>
+          <h2 data-i18n="circuit.title"></h2>
+          <button id="circuit-editor-close" class="panel-close" type="button" data-i18n-attrs="aria-label:ui.close"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m6 6 12 12M18 6 6 18"/></svg></button>
+        </div>
+        <section id="circuit-help">
+
           <p class="muted" data-i18n="circuit.help">
             Choose the machines, their order, rounds and target reps. Changes apply to workouts you
             start afterwards; a workout already started today keeps its circuit.
@@ -137,16 +153,16 @@
             </button>
           </div>
           <p id="circuit-status" class="muted" role="status"></p>
-        </details>
-        <details id="install-help" open hidden>
-          <summary data-i18n="install.title">Add to Home Screen</summary>
-          <p id="install-text" class="muted"></p>
-          <button id="install-app" type="button" data-i18n="install.button" hidden>
-            Install app
-          </button>
-        </details>
-        <details id="backup-help" hidden>
-          <summary data-i18n="backup.title">Your data</summary>
+        </section>
+      </dialog>
+      <dialog id="data-panel" class="app-panel full-view" aria-label="Your data" data-i18n-attrs="aria-label:backup.title" hidden>
+        <div class="panel-heading">
+          <button id="data-back" class="panel-back" type="button" data-i18n="settings.back"></button>
+          <h2 data-i18n="backup.title"></h2>
+          <button id="data-close" class="panel-close" type="button" data-i18n-attrs="aria-label:ui.close"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m6 6 12 12M18 6 6 18"/></svg></button>
+        </div>
+        <section id="backup-help" hidden>
+
           <p class="muted" data-i18n="backup.help">
             Your workouts are stored in this browser on this device. There is no central workout
             database or automatic cloud upload. You choose when to export a copy and where to save it.
@@ -202,28 +218,15 @@
           </div>
           <input id="import-backup" type="file" accept="application/json,.json" hidden />
           <p id="backup-status" class="muted" role="status"></p>
-        </details>
-        <details open>
-          <summary data-i18n="help.title">How saving works</summary>
-          <p class="muted" data-i18n="progression.help"></p>
-          <p id="saving-help" class="muted">
-            Weight starts from your latest recorded session; it is a starting point, not an
-            automatic weight increase. Save every set during your rest. “Saved” means the
-            device confirmed it. If saving fails, retry before leaving this screen.
-          </p>
-          <button id="refresh-settings" type="button" data-i18n="workout.refresh" aria-describedby="check-saved-help">
-            Check saved data
-          </button>
+        </section>
+        <section class="saving-guidance">
+          <h3 data-i18n="help.title"></h3>
+          <p id="saving-help" class="muted"></p>
+          <p id="connection-help" class="muted"></p>
+          <button id="refresh-settings" type="button" data-i18n="data.refresh" aria-describedby="check-saved-help"></button>
           <p id="check-saved-help" class="muted" data-i18n="help.checkSaved"></p>
-          <p class="muted">
-            <span data-i18n="help.skip"
-              >“Skip” leaves this set unlogged. The checklist and finish check will remind you. One
-              workout per calendar day is supported.</span
-            >
-            <span id="connection-help">This page needs an internet connection; it cannot start
-              offline or send background reminders while your phone is locked.</span>
-          </p>
-        </details>
+          <p id="data-refresh-status" role="status" aria-live="polite"></p>
+        </section>
       </dialog>
       <dialog
         id="progress-panel"
@@ -234,7 +237,7 @@
       >
         <div class="panel-heading">
           <h2 data-i18n="progress.title">Progress</h2>
-          <button id="progress-close" class="panel-close" type="button" data-i18n-attrs="aria-label:ui.close">×</button>
+          <button id="progress-close" class="panel-close" type="button" data-i18n-attrs="aria-label:ui.close"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m6 6 12 12M18 6 6 18"/></svg></button>
         </div>
         <div
           id="progress-ranges"
@@ -417,7 +420,7 @@
         <dialog id="circuit-panel" class="app-panel sheet" aria-labelledby="circuit-title" hidden>
         <div class="panel-heading">
           <h2 id="circuit-title" data-i18n="ui.circuit"></h2>
-          <button id="circuit-close" class="panel-close" type="button" data-i18n-attrs="aria-label:ui.close">×</button>
+          <button id="circuit-close" class="panel-close" type="button" data-i18n-attrs="aria-label:ui.close"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m6 6 12 12M18 6 6 18"/></svg></button>
         </div>
         <div
           id="rounds"
