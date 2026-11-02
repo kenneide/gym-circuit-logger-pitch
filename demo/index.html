@@ -5,9 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="color-scheme" content="light dark" />
     <title>Gym logger</title>
-    <script type="module" crossorigin src="./assets/main-Cxb7J7VJ.js"></script>
-    <link rel="modulepreload" crossorigin href="./assets/i18n-D1jYGAWL.js">
-    <link rel="stylesheet" crossorigin href="./assets/main-B5r9Xs6S.css">
+    <script type="module" crossorigin src="./assets/main-GedmuUla.js"></script>
+    <link rel="modulepreload" crossorigin href="./assets/i18n-BilMz3_w.js">
+    <link rel="stylesheet" crossorigin href="./assets/main-BLnD-UY8.css">
+    <meta name="app-build" content="2fe54adc-51da-4a8b-a81c-634812515619">
     <link rel="manifest" href="manifest.webmanifest">
     <meta name="theme-color" content="#f2f6fb">
     <meta name="mobile-web-app-capable" content="yes">
@@ -72,6 +73,11 @@
           </svg>
         </button>
       </header>
+      <aside id="update-notice" class="update-notice" hidden aria-live="polite">
+        <span data-i18n="update.available"></span>
+        <button id="update-now" type="button" data-i18n="update.now"></button>
+        <span id="update-notice-status" role="status"></span>
+      </aside>
       <dialog
         id="settings-panel"
         class="app-panel sheet"
@@ -103,6 +109,12 @@
           <label for="language" data-i18n="settings.language">Language</label>
           <select id="language"></select>
         </div>
+        <section id="update-settings" hidden>
+          <p id="app-build" class="muted small"></p>
+          <button id="check-updates" type="button" data-i18n="update.check"></button>
+          <button id="update-settings-now" type="button" data-i18n="update.now" hidden></button>
+          <p id="update-status" class="muted" role="status"></p>
+        </section>
         <details id="circuit-help" hidden>
           <summary data-i18n="circuit.title">Your circuit</summary>
           <p class="muted" data-i18n="circuit.help">
@@ -119,6 +131,7 @@
             <button id="circuit-save" type="button" class="primary" data-i18n="circuit.save">
               Save circuit
             </button>
+            <button id="circuit-cancel" type="button" data-i18n="update.cancelEdits"></button>
             <button id="circuit-reset" type="button" data-i18n="circuit.reset" hidden>
               Use the gym’s circuit
             </button>

@@ -1,28 +1,47 @@
+const BUILD_ID = "2fe54adc-51da-4a8b-a81c-634812515619";
 const PREFIX = "gym-logger-demo-";
-const CACHE = "gym-logger-demo-80a0949ba193";
-const FILES = ["./","assets/i18n-D1jYGAWL.js","assets/main-B5r9Xs6S.css","assets/main-Cxb7J7VJ.js","assets/poster-BgauyITt.js","assets/poster-Csqn7Sxn.css","icon.png","manifest.webmanifest","poster.html"];
+const CACHE = "gym-logger-demo-907714b66e66";
+const FILES = ["./","assets/i18n-BilMz3_w.js","assets/main-BLnD-UY8.css","assets/main-GedmuUla.js","assets/poster-Csqn7Sxn.css","assets/poster-CuLaddPy.js","icon.png","manifest.webmanifest","poster.html"];
 self.addEventListener('install', (event) => {
-  event.waitUntil(caches.open(CACHE).then((cache) => cache.addAll(FILES)).then(() => self.skipWaiting()));
+  event.waitUntil(caches.open(CACHE).then((cache) => Promise.all(FILES.map(async (file) => {
+    const url = new URL(file, self.registration.scope);
+    url.searchParams.set('app-build', BUILD_ID);
+    const response = await fetch(new Request(url, { cache: 'reload' }));
+    if (!response.ok) throw new Error('Incomplete application download');
+    if (file === './' && !(await response.clone().text()).includes('content="' + BUILD_ID + '"'))
+      throw new Error('Application deployment is not ready');
+    await cache.put(file, response);
+  }))));
+});
+self.addEventListener('message', (event) => {
+  if (event.data?.type === 'GET_BUILD') event.ports[0]?.postMessage({ buildId: BUILD_ID });
+  if (event.data?.type === 'ACTIVATE_UPDATE') event.waitUntil(self.skipWaiting());
 });
 self.addEventListener('activate', (event) => {
   event.waitUntil(
     caches.keys()
-      .then((keys) => Promise.all(keys.filter((key) => key.startsWith(PREFIX) && key !== CACHE).map((key) => caches.delete(key))))
+      .then((keys) => Promise.all(keys.filter((key) => key.startsWith(PREFIX) && /^[a-f0-9]{12}$/.test(key.slice(PREFIX.length)) && key !== CACHE).map((key) => caches.delete(key))))
       .then(() => self.clients.claim())
   );
 });
 self.addEventListener('fetch', (event) => {
   const request = event.request;
   if (request.method !== 'GET' || new URL(request.url).origin !== location.origin) return;
+  const url = new URL(request.url);
+  if (!url.pathname.startsWith(new URL(self.registration.scope).pathname)) return;
+  if (url.pathname.endsWith('/version.json')) {
+    event.respondWith(fetch(request, { cache: 'no-store' }));
+    return;
+  }
   // Pages (the app, the poster) come from their own cached copy; an uncached page falls back
   // to the app shell only when the network is unavailable.
   const navigate = request.mode === 'navigate';
   event.respondWith(
-    caches.match(request, { ignoreSearch: navigate }).then(
+    caches.open(CACHE).then((cache) => cache.match(request, { ignoreSearch: navigate })).then(
       (cached) =>
         cached ||
         fetch(request).catch((error) =>
-          navigate ? caches.match('./').then((shell) => shell || Promise.reject(error)) : Promise.reject(error)
+          navigate ? caches.open(CACHE).then((cache) => cache.match('./')).then((shell) => shell || Promise.reject(error)) : Promise.reject(error)
         )
     )
   );
