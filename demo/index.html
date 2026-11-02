@@ -5,10 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="color-scheme" content="light dark" />
     <title>Gym logger</title>
-    <script type="module" crossorigin src="./assets/main-BUPxNEyg.js"></script>
-    <link rel="modulepreload" crossorigin href="./assets/i18n-C2s8PXIW.js">
+    <script type="module" crossorigin src="./assets/main-DKPr9C6f.js"></script>
+    <link rel="modulepreload" crossorigin href="./assets/i18n-Ovq-c_eC.js">
     <link rel="stylesheet" crossorigin href="./assets/main-CpDmpJY8.css">
-    <meta name="app-build" content="f730ccfc-aeeb-4177-bbbd-156bcf32dc14">
+    <meta name="app-build" content="100ef0a6-aa87-44c1-b37a-b64d6247615e">
     <link rel="manifest" href="manifest.webmanifest">
     <meta name="theme-color" content="#f2f6fb">
     <meta name="mobile-web-app-capable" content="yes">
@@ -138,7 +138,6 @@
             Choose the machines, their order, rounds and target reps. Changes apply to workouts you
             start afterwards; a workout already started today keeps its circuit.
           </p>
-          <p id="circuit-source" class="muted small"></p>
           <div class="color-theme-setting">
             <label for="circuit-rounds" data-i18n="circuit.rounds">Rounds</label>
             <select id="circuit-rounds"></select>
@@ -149,8 +148,8 @@
               Save
             </button>
             <button id="circuit-cancel" type="button" data-i18n="update.cancelEdits"></button>
-            <button id="circuit-reset" type="button" data-i18n="circuit.reset" hidden>
-              Use the gym’s circuit
+            <button id="circuit-reset" type="button" data-i18n="circuit.reset" disabled>
+              Reset to gym default
             </button>
           </div>
           <p id="circuit-status" class="muted" role="status"></p>
