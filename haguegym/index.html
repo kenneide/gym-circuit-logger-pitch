@@ -5,9 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="color-scheme" content="light dark" />
     <title>Gym logger</title>
-    <script type="module" crossorigin src="./assets/main-DM86bP21.js"></script>
-    <link rel="modulepreload" crossorigin href="./assets/i18n-6TFKrTxT.js">
-    <link rel="stylesheet" crossorigin href="./assets/main-BadTq8fr.css">
+    <script type="module" crossorigin src="./assets/main-Ctj-mcu6.js"></script>
+    <link rel="modulepreload" crossorigin href="./assets/i18n-DM3lCELf.js">
+    <link rel="stylesheet" crossorigin href="./assets/main-CQY29u8Z.css">
     <link rel="manifest" href="manifest.webmanifest">
     <meta name="theme-color" content="#f5f5f5">
     <meta name="mobile-web-app-capable" content="yes">
@@ -422,9 +422,10 @@
       </section>
     </main>
     <dialog id="completion-dialog" aria-labelledby="completion-title">
-      <div class="completion-mark" aria-hidden="true"><svg viewBox="0 0 48 48" fill="none"><path d="m13 24 8 8 15-16" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      <div id="completion-mark" class="completion-mark" aria-hidden="true"><svg viewBox="0 0 48 48" fill="none"><path d="m13 24 8 8 15-16" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
       <h2 id="completion-title" data-i18n="completion.title"></h2>
-      <p data-i18n="completion.message"></p>
+      <p id="completion-message" data-i18n="completion.message"></p>
+      <p id="finish-missing" hidden></p>
       <p id="completion-summary" class="completion-summary"></p>
       <button id="completion-finish" data-i18n="completion.finish"></button>
       <button id="completion-review" data-i18n="completion.review"></button>
