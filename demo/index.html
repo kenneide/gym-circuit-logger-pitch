@@ -5,10 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="color-scheme" content="light dark" />
     <title>Gym logger</title>
-    <script type="module" crossorigin src="./assets/main-BT3q_NnE.js"></script>
-    <link rel="modulepreload" crossorigin href="./assets/i18n-Ovq-c_eC.js">
+    <script type="module" crossorigin src="./assets/main-WUie4u73.js"></script>
+    <link rel="modulepreload" crossorigin href="./assets/i18n-CNsSZg2K.js">
     <link rel="stylesheet" crossorigin href="./assets/main-BpV7CZ4n.css">
-    <meta name="app-build" content="fdd83e3b-5dce-4334-93be-ba30fadcdd6f">
+    <meta name="app-build" content="475c7601-f40e-4414-88e4-a4f3fb810a40">
     <link rel="manifest" href="manifest.webmanifest">
     <meta name="theme-color" content="#f2f6fb">
     <meta name="mobile-web-app-capable" content="yes">
@@ -110,20 +110,17 @@
         </div>
         <button id="circuit-editor-toggle" aria-haspopup="dialog" aria-controls="circuit-editor-panel" class="settings-link" type="button" data-i18n="circuit.title" hidden></button>
         <button id="data-toggle" aria-haspopup="dialog" aria-controls="data-panel" class="settings-link" type="button" data-i18n="backup.title" hidden></button>
-        <details id="install-help" open hidden>
-          <summary data-i18n="install.title">Add to Home Screen</summary>
-          <p id="install-text" class="muted"></p>
-          <button id="install-app" type="button" data-i18n="install.button" hidden>
-            Install app
-          </button>
-        </details>
-        <section id="update-settings" hidden>
-          <div class="version-row">
-            <span data-i18n="settings.version"></span>
-            <code id="app-build"></code>
-            <button id="check-updates" type="button" data-i18n="update.check"></button>
-          </div>
-          <p id="update-status" class="muted" role="status"></p>
+        <section id="app-info">
+          <section id="update-settings" hidden>
+            <div class="version-row">
+              <span data-i18n="settings.version"></span>
+              <code id="app-build"></code>
+              <button id="check-updates" type="button" data-i18n="update.check"></button>
+            </div>
+            <p id="update-status" class="muted" role="status"></p>
+          </section>
+          <button id="install-app" type="button" data-i18n="install.button" aria-controls="install-text" aria-expanded="false" hidden></button>
+          <p id="install-text" class="muted" hidden></p>
         </section>
       </dialog>
       <dialog id="circuit-editor-panel" class="app-panel full-view" aria-label="Your circuit" data-i18n-attrs="aria-label:circuit.title" hidden>
