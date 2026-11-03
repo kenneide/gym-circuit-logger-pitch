@@ -5,10 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="color-scheme" content="light dark" />
     <title>Gym logger</title>
-    <script type="module" crossorigin src="./assets/main-WUie4u73.js"></script>
+    <script type="module" crossorigin src="./assets/main-BWP3KRMa.js"></script>
     <link rel="modulepreload" crossorigin href="./assets/i18n-CNsSZg2K.js">
-    <link rel="stylesheet" crossorigin href="./assets/main-BpV7CZ4n.css">
-    <meta name="app-build" content="475c7601-f40e-4414-88e4-a4f3fb810a40">
+    <link rel="stylesheet" crossorigin href="./assets/main-Bv8VSPTP.css">
+    <meta name="app-build" content="a777a604-7baa-4021-8e61-010aac68a9a2">
     <link rel="manifest" href="manifest.webmanifest">
     <meta name="theme-color" content="#f2f6fb">
     <meta name="mobile-web-app-capable" content="yes">
@@ -111,15 +111,17 @@
         <button id="circuit-editor-toggle" aria-haspopup="dialog" aria-controls="circuit-editor-panel" class="settings-link" type="button" data-i18n="circuit.title" hidden></button>
         <button id="data-toggle" aria-haspopup="dialog" aria-controls="data-panel" class="settings-link" type="button" data-i18n="backup.title" hidden></button>
         <section id="app-info">
-          <section id="update-settings" hidden>
-            <div class="version-row">
-              <span data-i18n="settings.version"></span>
-              <code id="app-build"></code>
+          <div class="version-row">
+            <div id="update-settings" class="version-details" hidden>
+              <span class="version-identity">
+                <span data-i18n="settings.version"></span>
+                <code id="app-build"></code>
+              </span>
               <button id="check-updates" type="button" data-i18n="update.check"></button>
             </div>
-            <p id="update-status" class="muted" role="status"></p>
-          </section>
-          <button id="install-app" type="button" data-i18n="install.button" aria-controls="install-text" aria-expanded="false" hidden></button>
+            <button id="install-app" type="button" data-i18n="install.button" aria-controls="install-text" aria-expanded="false" hidden></button>
+          </div>
+          <p id="update-status" class="muted" role="status"></p>
           <p id="install-text" class="muted" hidden></p>
         </section>
       </dialog>
