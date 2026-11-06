@@ -4,11 +4,11 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="color-scheme" content="light dark" />
-    <title>Gym logger</title>
-    <script type="module" crossorigin src="./assets/main-CQ2FKtls.js"></script>
-    <link rel="modulepreload" crossorigin href="./assets/i18n-CNsSZg2K.js">
-    <link rel="stylesheet" crossorigin href="./assets/main-CWtsAg-3.css">
-    <meta name="app-build" content="a6ad1f76-4d1e-47e7-af51-8c0a5653b04c">
+    <title></title>
+    <script type="module" crossorigin src="./assets/main-C83xWuzH.js"></script>
+    <link rel="modulepreload" crossorigin href="./assets/i18n-izplsxd3.js">
+    <link rel="stylesheet" crossorigin href="./assets/main-Ne4VWa3n.css">
+    <meta name="app-build" content="ad555889-25c2-45fb-bbd7-0ec03c064972">
     <link rel="manifest" href="manifest.webmanifest">
     <meta name="theme-color" content="#f2f6fb">
     <meta name="mobile-web-app-capable" content="yes">
@@ -31,8 +31,6 @@
           aria-expanded="false"
           aria-controls="settings-panel"
           aria-haspopup="dialog"
-          aria-label="Settings"
-          title="Settings"
           data-i18n-attrs="aria-label:settings.title,title:settings.title"
         >
           <svg
@@ -56,8 +54,6 @@
           aria-expanded="false"
           aria-controls="progress-panel"
           aria-haspopup="dialog"
-          aria-label="Progress"
-          title="Progress"
           data-i18n-attrs="aria-label:progress.title,title:progress.title"
         >
           <svg
@@ -80,32 +76,29 @@
       <dialog
         id="settings-panel"
         class="app-panel full-view"
-        aria-label="Settings"
         data-i18n-attrs="aria-label:settings.title"
         hidden
       >
         <div class="panel-heading">
-          <h2 data-i18n="settings.title">Settings</h2>
+          <h2 data-i18n="settings.title"></h2>
           <button id="settings-close" class="panel-close" type="button" data-i18n-attrs="aria-label:ui.close"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m6 6 12 12M18 6 6 18"/></svg></button>
         </div>
         <div class="appearance">
-          <span data-i18n="settings.mode">Dark/Light Mode</span>
+          <span data-i18n="settings.mode"></span>
           <button
             id="theme-toggle"
             class="theme-toggle"
             type="button"
-            aria-label="Switch color mode"
-            title="Switch color mode"
           >
             ◐
           </button>
         </div>
         <div class="color-theme-setting">
-          <label for="color-theme" data-i18n="settings.colorTheme">Color theme</label>
+          <label for="color-theme" data-i18n="settings.colorTheme"></label>
           <select id="color-theme"></select>
         </div>
         <div class="color-theme-setting">
-          <label for="language" data-i18n="settings.language">Language</label>
+          <label for="language" data-i18n="settings.language"></label>
           <select id="language"></select>
         </div>
         <button id="circuit-editor-toggle" aria-haspopup="dialog" aria-controls="circuit-editor-panel" class="settings-link" type="button" data-i18n="circuit.title" hidden></button>
@@ -125,7 +118,7 @@
           <p id="install-text" class="muted" hidden></p>
         </section>
       </dialog>
-      <dialog id="circuit-editor-panel" class="app-panel full-view" aria-label="Your circuit" data-i18n-attrs="aria-label:circuit.title" hidden>
+      <dialog id="circuit-editor-panel" class="app-panel full-view" data-i18n-attrs="aria-label:circuit.title" hidden>
         <div class="panel-heading">
           <button id="circuit-editor-back" class="panel-back" type="button" data-i18n="settings.back"></button>
           <h2 data-i18n="circuit.title"></h2>
@@ -133,28 +126,21 @@
         </div>
         <section id="circuit-help">
 
-          <p class="muted" data-i18n="circuit.help">
-            Choose the machines, their order, rounds and target reps. Changes apply to workouts you
-            start afterwards; a workout already started today keeps its circuit.
-          </p>
+          <p class="muted" data-i18n="circuit.help"></p>
           <div class="color-theme-setting">
-            <label for="circuit-rounds" data-i18n="circuit.rounds">Rounds</label>
+            <label for="circuit-rounds" data-i18n="circuit.rounds"></label>
             <select id="circuit-rounds"></select>
           </div>
           <ol id="circuit-list" class="circuit-list"></ol>
           <div class="circuit-editor-actions">
-            <button id="circuit-save" type="button" class="primary" data-i18n="circuit.save">
-              Save
-            </button>
+            <button id="circuit-save" type="button" class="primary" data-i18n="circuit.save"></button>
             <button id="circuit-cancel" type="button" data-i18n="update.cancelEdits"></button>
-            <button id="circuit-reset" type="button" data-i18n="circuit.reset" disabled>
-              Reset to gym default
-            </button>
+            <button id="circuit-reset" type="button" data-i18n="circuit.reset" disabled></button>
           </div>
           <p id="circuit-status" class="muted" role="status"></p>
         </section>
       </dialog>
-      <dialog id="data-panel" class="app-panel full-view" aria-label="Your data" data-i18n-attrs="aria-label:backup.title" hidden>
+      <dialog id="data-panel" class="app-panel full-view" data-i18n-attrs="aria-label:backup.title" hidden>
         <div class="panel-heading">
           <button id="data-back" class="panel-back" type="button" data-i18n="settings.back"></button>
           <h2 data-i18n="backup.title"></h2>
@@ -162,15 +148,10 @@
         </div>
         <section id="backup-help" hidden>
 
-          <p class="muted" data-i18n="backup.help">
-            Your workouts are stored in this browser on this device. There is no central workout
-            database or automatic cloud upload. You choose when to export a copy and where to save it.
-          </p>
+          <p class="muted" data-i18n="backup.help"></p>
           <div class="data-actions">
             <div>
-              <button id="export-csv" type="button" data-i18n="backup.csv" aria-describedby="csv-help">
-                Export for spreadsheets (CSV)
-              </button>
+              <button id="export-csv" type="button" data-i18n="backup.csv" aria-describedby="csv-help"></button>
               <p id="csv-help" class="muted" data-i18n="backup.csvHelp"></p>
             </div>
             <div>
@@ -179,9 +160,7 @@
                 type="button"
                 data-i18n="backup.save"
                 aria-describedby="full-backup-help"
-              >
-                Save full backup
-              </button>
+              ></button>
               <p id="full-backup-help" class="muted" data-i18n="backup.saveHelp"></p>
             </div>
             <div>
@@ -190,9 +169,7 @@
                 type="button"
                 data-i18n="backup.restore"
                 aria-describedby="restore-help"
-              >
-                Restore full backup
-              </button>
+              ></button>
               <p id="restore-help" class="muted" data-i18n="backup.restoreHelp"></p>
             </div>
           </div>
@@ -230,27 +207,25 @@
       <dialog
         id="progress-panel"
         class="app-panel full-view"
-        aria-label="Progress"
         data-i18n-attrs="aria-label:progress.title"
         hidden
       >
         <div class="panel-heading">
-          <h2 data-i18n="progress.title">Progress</h2>
+          <h2 data-i18n="progress.title"></h2>
           <button id="progress-close" class="panel-close" type="button" data-i18n-attrs="aria-label:ui.close"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m6 6 12 12M18 6 6 18"/></svg></button>
         </div>
         <div
           id="progress-ranges"
           class="segmented"
           role="group"
-          aria-label="Time range"
           data-i18n-attrs="aria-label:progress.range"
         ></div>
         <div id="progress-body"></div>
       </dialog>
       <div class="top">
         <div>
-          <h1 id="app-heading">Your workout</h1>
-          <div id="date" class="muted" data-i18n="app.loading">Loading your workout…</div>
+          <h1 id="app-heading" data-i18n="app.heading"></h1>
+          <div id="date" class="muted" data-i18n="app.loading"></div>
         </div>
         <span id="count" class="pill">0 / —</span>
       </div>
@@ -264,17 +239,20 @@
         </div>
       </aside>
       <div id="status" role="status" aria-live="polite"></div>
-      <button id="retry" class="secondary" data-i18n="workout.retry" hidden>
-        Retry pending save
-      </button>
-      <button id="refresh" class="secondary" data-i18n="workout.refresh" aria-describedby="status" hidden>
-        Check saved data
-      </button>
+      <button id="retry" class="secondary" data-i18n="workout.retry" hidden></button>
+      <button id="refresh" class="secondary" data-i18n="workout.refresh" aria-describedby="status" hidden></button>
       <div id="start-options" hidden>
-        <label for="starting-exercise" data-i18n="workout.startingExercise">Starting exercise</label>
+        <label for="starting-exercise" data-i18n="workout.startingExercise"></label>
         <select id="starting-exercise"></select>
       </div>
-      <button id="start" class="primary" hidden>Start workout</button>
+      <button id="start" class="primary" data-i18n="workout.start" hidden></button>
+      <div id="install-home-placement" hidden>
+        <aside id="install-home" class="install-reminder" hidden>
+          <button id="install-home-button" type="button" data-i18n="install.button" aria-controls="install-home-text" aria-expanded="false"></button>
+          <p class="muted" data-i18n="install.reason"></p>
+          <p id="install-home-text" class="muted" hidden></p>
+        </aside>
+      </div>
       <section id="workout" hidden>
         <button id="circuit-toggle" class="circuit-toggle" type="button" aria-haspopup="dialog" data-i18n="ui.circuit"></button>
         <div class="card exercise-card" id="exercise-card">
@@ -282,11 +260,10 @@
           <h2 id="exercise"></h2>
           <div class="fields">
             <div>
-              <label for="weight" data-i18n="workout.weight">Weight · kg</label>
+              <label for="weight" data-i18n="workout.weight"></label>
               <div class="stepper">
                 <button
                   id="weightDown"
-                  aria-label="Decrease weight"
                   data-i18n-attrs="aria-label:workout.weightDown"
                 >
                   −
@@ -300,7 +277,6 @@
                   inputmode="decimal"
                 /><button
                   id="weightUp"
-                  aria-label="Increase weight"
                   data-i18n-attrs="aria-label:workout.weightUp"
                 >
                   +
@@ -308,11 +284,10 @@
               </div>
             </div>
             <div>
-              <label for="reps" data-i18n="workout.reps">Reps completed</label>
+              <label for="reps" data-i18n="workout.reps"></label>
               <div class="stepper">
                 <button
                   id="repsDown"
-                  aria-label="Decrease reps"
                   data-i18n-attrs="aria-label:workout.repsDown"
                 >
                   −
@@ -326,7 +301,6 @@
                   inputmode="numeric"
                 /><button
                   id="repsUp"
-                  aria-label="Increase reps"
                   data-i18n-attrs="aria-label:workout.repsUp"
                 >
                   +
@@ -349,7 +323,7 @@
           <p id="progression-hint" class="muted small"></p>
           <div id="effort" class="effort" data-selected="false">
             <div class="effort-heading">
-              <label for="difficulty" data-i18n="effort.label">Effort · optional</label>
+              <label for="difficulty" data-i18n="effort.label"></label>
               <output id="difficulty-value" for="difficulty">—</output>
             </div>
             <input
@@ -360,47 +334,44 @@
               step="1"
               value="2"
               list="effort-stops"
-              aria-valuetext="No effort selected"
+              data-i18n-attrs="aria-valuetext:effort.none"
               aria-describedby="effort-help"
             />
             <datalist id="effort-stops">
-              <option value="1" label="Easy" data-i18n-attrs="label:effort.easy"></option>
-              <option value="2" label="Moderate" data-i18n-attrs="label:effort.moderate"></option>
-              <option value="3" label="Hard" data-i18n-attrs="label:effort.hard"></option>
+              <option value="1" data-i18n-attrs="label:effort.easy"></option>
+              <option value="2" data-i18n-attrs="label:effort.moderate"></option>
+              <option value="3" data-i18n-attrs="label:effort.hard"></option>
             </datalist>
             <div class="effort-labels" aria-hidden="true">
-              <span data-i18n="effort.easy">Easy</span><span data-i18n="effort.moderate">Moderate</span
-              ><span data-i18n="effort.hard">Hard</span>
+              <span data-i18n="effort.easy"></span><span data-i18n="effort.moderate"></span
+              ><span data-i18n="effort.hard"></span>
             </div>
           </div>
-          <p id="effort-help" class="muted small" data-i18n="effort.help">
-            Tap the selected effort again to clear.
-          </p>
+          <p id="effort-help" class="muted small" data-i18n="effort.help"></p>
           <div id="setup-context" class="setup-context">
             <p id="setup" class="setup" hidden></p>
             <div id="my-note" class="my-note" hidden>
-              <div id="my-note-label" class="note-label" data-i18n="note.mine">My note</div>
+              <div id="my-note-label" class="note-label" data-i18n="note.mine"></div>
               <p id="my-note-text" class="setup mine"></p>
-              <button id="note-edit" type="button" class="link" data-i18n="note.edit">Edit note</button>
+              <button id="note-edit" type="button" class="link" data-i18n="note.edit"></button>
             </div>
             <div id="note-editor" class="note-editor" hidden>
-              <label for="note-input" data-i18n="note.label">My note for this machine</label>
+              <label for="note-input" data-i18n="note.label"></label>
               <textarea
                 id="note-input"
                 rows="3"
                 maxlength="500"
-                placeholder="e.g. Seat 5, back pad 2"
                 data-i18n-attrs="placeholder:note.placeholder"
               ></textarea>
               <div class="note-actions">
-                <button id="note-save" type="button" class="primary" data-i18n="note.save">Save note</button>
-                <button id="note-cancel" type="button" class="secondary" data-i18n="note.cancel">Cancel</button>
+                <button id="note-save" type="button" class="primary" data-i18n="note.save"></button>
+                <button id="note-cancel" type="button" class="secondary" data-i18n="note.cancel"></button>
               </div>
             </div>
             <button id="notes-expand" type="button" aria-controls="setup-context" class="link" aria-expanded="false" data-i18n="ui.showNotes"></button>
           </div>
           <div id="previous" class="previous muted">
-            <div class="previous-heading" data-i18n="workout.previous">Previous session</div>
+            <div class="previous-heading" data-i18n="workout.previous"></div>
             <time id="previous-date"></time>
             <div id="previous-sets" class="previous-sets"></div>
           </div>
@@ -408,12 +379,10 @@
         </div>
         <div id="action-bar" class="action-bar">
           <span id="save-feedback" class="save-feedback" role="status"></span>
-          <button id="save" class="primary">Save & next</button>
+          <button id="save" class="primary" data-i18n="workout.save"></button>
           <div id="controls">
-            <button id="skip" class="secondary" data-i18n="workout.skip">Skip</button
-            ><button id="delete" class="secondary" data-i18n="workout.remove" hidden>
-              Remove entry
-            </button>
+            <button id="skip" class="secondary" data-i18n="workout.skip"></button
+            ><button id="delete" class="secondary" data-i18n="workout.remove" hidden></button>
           </div>
         </div>
         <dialog id="circuit-panel" class="app-panel sheet" aria-labelledby="circuit-title" hidden>
@@ -424,16 +393,15 @@
         <div
           id="rounds"
           class="rounds"
-          aria-label="Rounds"
           data-i18n-attrs="aria-label:workout.rounds"
         ></div>
         <div class="top">
-          <strong data-i18n="workout.savedSets">Saved sets</strong
-          ><span class="muted small" data-i18n="workout.tapToEdit">Tap any set to edit</span>
+          <strong data-i18n="workout.savedSets"></strong
+          ><span class="muted small" data-i18n="workout.tapToEdit"></span>
         </div>
         <div id="checklist" class="checklist"></div>
         </dialog>
-        <button id="finish" class="secondary" data-i18n="workout.finish">Finish workout</button>
+        <button id="finish" class="secondary" data-i18n="workout.finish"></button>
       </section>
     </main>
     <dialog id="completion-dialog" class="confirmation-dialog" aria-labelledby="completion-title">
@@ -442,6 +410,11 @@
       <p id="completion-message" data-i18n="completion.message"></p>
       <p id="finish-missing" hidden></p>
       <p id="completion-summary" class="completion-summary"></p>
+      <aside id="install-completion" class="install-reminder" hidden>
+        <button id="install-completion-button" type="button" data-i18n="install.button" aria-controls="install-completion-text" aria-expanded="false"></button>
+        <p class="muted" data-i18n="install.reason"></p>
+        <p id="install-completion-text" class="muted" hidden></p>
+      </aside>
       <button id="completion-finish" data-i18n="completion.finish"></button>
       <button id="completion-review" data-i18n="completion.review"></button>
     </dialog>
