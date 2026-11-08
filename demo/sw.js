@@ -1,7 +1,7 @@
-const BUILD_ID = "23f3bc41-567b-4e69-938c-985b43aab991";
+const BUILD_ID = "9211e19c-a0ae-40b2-9ff5-46c9ff9791e3";
 const PREFIX = "gym-logger-demo-";
-const CACHE = "gym-logger-demo-b8f23a121b1b";
-const FILES = ["./","assets/i18n-QKbqkyyJ.js","assets/main-BSXJS1hS.css","assets/main-CBpUt8Id.js","assets/poster-C63K48eO.js","assets/poster-Csqn7Sxn.css","font-license.txt","icon.png","manifest.webmanifest","poster.html"];
+const CACHE = "gym-logger-demo-ca4cce183e33";
+const FILES = ["./","assets/i18n-QKbqkyyJ.js","assets/main-BSXJS1hS.css","assets/main-BwDlOgG1.js","assets/poster-C63K48eO.js","assets/poster-Csqn7Sxn.css","font-license.txt","icon.png","manifest.webmanifest","poster.html"];
 self.addEventListener('install', (event) => {
   event.waitUntil(caches.open(CACHE).then((cache) => Promise.all(FILES.map(async (file) => {
     const url = new URL(file, self.registration.scope);
