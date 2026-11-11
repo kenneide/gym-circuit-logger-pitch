@@ -5,10 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="color-scheme" content="light dark" />
     <title></title>
-    <script type="module" crossorigin src="./assets/main-BSmgComL.js"></script>
-    <link rel="modulepreload" crossorigin href="./assets/i18n-BotTnDIz.js">
-    <link rel="stylesheet" crossorigin href="./assets/main-CssNx1Bj.css">
-    <meta name="app-build" content="f33c190e-0bb4-4a12-a52b-bd5296f1c2f4">
+    <script type="module" crossorigin src="./assets/main-DHIAqnSd.js"></script>
+    <link rel="modulepreload" crossorigin href="./assets/i18n-CCZLEUrP.js">
+    <link rel="stylesheet" crossorigin href="./assets/main-DqSbocZL.css">
+    <meta name="app-build" content="54de4952-bfd5-4a2d-b7b4-3e7162326334">
     <link rel="manifest" href="manifest.webmanifest">
     <meta name="theme-color" content="#f5f5f5">
     <meta name="mobile-web-app-capable" content="yes">
@@ -18,6 +18,7 @@
   </head>
   <body>
     <main>
+      <a id="demo-home" class="demo-home" href="../" data-i18n="demo.home" hidden></a>
       <header class="brand-header">
         <div class="brand-mark">
           <img id="gym-logo" alt="" width="1024" height="576" hidden />
@@ -127,13 +128,21 @@
         <section id="circuit-help">
 
           <p class="muted" data-i18n="circuit.help"></p>
-          <div class="color-theme-setting">
-            <label for="circuit-rounds" data-i18n="circuit.rounds"></label>
-            <select id="circuit-rounds"></select>
-          </div>
-          <h3 data-i18n="progression.title"></h3>
-          <div id="circuit-progression"></div>
-          <ol id="circuit-list" class="circuit-list"></ol>
+          <section class="circuit-section" aria-labelledby="circuit-progression-heading">
+            <h3 id="circuit-progression-heading" data-i18n="progression.default"></h3>
+            <p class="muted" data-i18n="progression.purpose"></p>
+            <div id="circuit-progression"></div>
+          </section>
+          <section class="circuit-section" aria-labelledby="circuit-rounds-heading">
+            <h3 id="circuit-rounds-heading" data-i18n="circuit.rounds"></h3>
+            <p id="circuit-rounds-description" class="muted" data-i18n="circuit.roundsDescription"></p>
+            <select id="circuit-rounds" aria-labelledby="circuit-rounds-heading" aria-describedby="circuit-rounds-description"></select>
+          </section>
+          <section class="circuit-section" aria-labelledby="circuit-exercises-heading">
+            <h3 id="circuit-exercises-heading" data-i18n="circuit.exercisesTitle"></h3>
+            <p class="muted" data-i18n="circuit.exercisesDescription"></p>
+            <ol id="circuit-list" class="circuit-list"></ol>
+          </section>
           <div class="circuit-editor-actions">
             <button id="circuit-save" type="button" class="primary" data-i18n="circuit.save"></button>
             <button id="circuit-cancel" type="button" data-i18n="update.cancelEdits"></button>
@@ -260,6 +269,31 @@
         <div class="card exercise-card" id="exercise-card">
           <div id="position" class="muted"></div>
           <h2 id="exercise"></h2>
+          <div class="exercise-guidance">
+            <p id="progression-hint"></p>
+            <div id="setup-context" class="setup-context">
+              <div id="setup" class="setup" hidden></div>
+              <div id="my-note" class="my-note" hidden>
+                <div id="my-note-label" class="note-label" data-i18n="note.mine"></div>
+                <p id="my-note-text" class="setup mine"></p>
+                <button id="note-edit" type="button" class="link" data-i18n="note.edit"></button>
+              </div>
+              <div id="note-editor" class="note-editor" hidden>
+                <label for="note-input" data-i18n="note.label"></label>
+                <textarea
+                  id="note-input"
+                  rows="3"
+                  maxlength="500"
+                  data-i18n-attrs="placeholder:note.placeholder"
+                ></textarea>
+                <div class="note-actions">
+                  <button id="note-save" type="button" class="primary" data-i18n="note.save"></button>
+                  <button id="note-cancel" type="button" class="secondary" data-i18n="note.cancel"></button>
+                </div>
+              </div>
+              <button id="notes-expand" type="button" aria-controls="setup-context" class="link" aria-expanded="false" data-i18n="ui.showNotes"></button>
+            </div>
+          </div>
           <div class="fields">
             <div>
               <label for="weight" data-i18n="workout.weight"></label>
@@ -315,15 +349,13 @@
               <label for="form" data-i18n="form.label"></label>
               <output id="form-value" for="form">—</output>
             </div>
-            <input id="form" type="range" min="1" max="2" step="1" value="1" aria-describedby="form-slider-help" />
+            <input id="form" type="range" min="1" max="2" step="1" value="1" />
             <div class="effort-labels" aria-hidden="true">
               <span data-i18n="form.good"></span>
               <span data-i18n="form.compromised"></span>
             </div>
-            <p id="form-slider-help" class="muted small" data-i18n="form.help"></p>
           </div>
           <div id="performance-inputs"></div>
-          <p id="progression-hint" class="muted small"></p>
           <div id="effort" class="effort" data-selected="false">
             <div class="effort-heading">
               <label for="difficulty" data-i18n="effort.label"></label>
@@ -338,7 +370,6 @@
               value="2"
               list="effort-stops"
               data-i18n-attrs="aria-valuetext:effort.none"
-              aria-describedby="effort-help"
             />
             <datalist id="effort-stops">
               <option value="1" data-i18n-attrs="label:effort.easy"></option>
@@ -350,34 +381,11 @@
               ><span data-i18n="effort.hard"></span>
             </div>
           </div>
-          <p id="effort-help" class="muted small" data-i18n="effort.help"></p>
-          <div id="setup-context" class="setup-context">
-            <div id="setup" class="setup" hidden></div>
-            <div id="my-note" class="my-note" hidden>
-              <div id="my-note-label" class="note-label" data-i18n="note.mine"></div>
-              <p id="my-note-text" class="setup mine"></p>
-              <button id="note-edit" type="button" class="link" data-i18n="note.edit"></button>
-            </div>
-            <div id="note-editor" class="note-editor" hidden>
-              <label for="note-input" data-i18n="note.label"></label>
-              <textarea
-                id="note-input"
-                rows="3"
-                maxlength="500"
-                data-i18n-attrs="placeholder:note.placeholder"
-              ></textarea>
-              <div class="note-actions">
-                <button id="note-save" type="button" class="primary" data-i18n="note.save"></button>
-                <button id="note-cancel" type="button" class="secondary" data-i18n="note.cancel"></button>
-              </div>
-            </div>
-            <button id="notes-expand" type="button" aria-controls="setup-context" class="link" aria-expanded="false" data-i18n="ui.showNotes"></button>
-          </div>
-          <div id="previous" class="previous muted">
-            <div class="previous-heading" data-i18n="workout.previous"></div>
+          <aside id="previous" class="previous muted" aria-labelledby="previous-title">
+            <h3 id="previous-title" class="previous-heading" data-i18n="workout.previous"></h3>
             <time id="previous-date"></time>
             <div id="previous-sets" class="previous-sets"></div>
-          </div>
+          </aside>
           <p id="hint" class="muted small"></p>
         </div>
         <div id="action-bar" class="action-bar">
