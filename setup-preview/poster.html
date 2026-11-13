@@ -4,13 +4,13 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title></title>
-    <script type="module" crossorigin src="./assets/poster-BXUmd8O0.js"></script>
-    <link rel="modulepreload" crossorigin href="./assets/i18n-pl9ENJzd.js">
+    <script type="module" crossorigin src="./assets/poster-qceJpmng.js"></script>
+    <link rel="modulepreload" crossorigin href="./assets/i18n-Cfc10Few.js">
     <link rel="stylesheet" crossorigin href="./assets/poster-DRz_Rifp.css">
   </head>
   <body class="poster">
     <main>
-      <div class="poster-tools">
+      <div class="poster-tools"><label for="poster-variant" data-i18n="poster.variant"></label><select id="poster-variant"><option value="standard" data-i18n="poster.standard"></option><option value="pilot" data-i18n="poster.pilot"></option></select>
         <label for="poster-language" data-i18n="settings.language"></label>
         <select id="poster-language"></select>
         <button id="poster-print" type="button" data-i18n="poster.print"></button>
@@ -19,6 +19,7 @@
         <img id="poster-logo" alt="" hidden />
         <h1 id="poster-gym"></h1>
         <p class="poster-headline" data-i18n="poster.headline"></p>
+        <p id="poster-pilot-copy" data-i18n="poster.pilotBody" hidden></p>
         <div id="poster-qr" class="poster-qr" role="img"></div>
         <p id="poster-url" class="poster-url"></p>
         <ol class="poster-steps">

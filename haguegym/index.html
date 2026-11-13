@@ -5,10 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="color-scheme" content="light dark" />
     <title></title>
-    <script type="module" crossorigin src="./assets/main-DjelnxQr.js"></script>
-    <link rel="modulepreload" crossorigin href="./assets/i18n-DJYp_iWV.js">
-    <link rel="stylesheet" crossorigin href="./assets/main-lJszxdmc.css">
-    <meta name="app-build" content="a7b0da8f-4ade-4a85-92fe-76a422405625">
+    <script type="module" crossorigin src="./assets/main-kr5oG_BV.js"></script>
+    <link rel="modulepreload" crossorigin href="./assets/i18n-kOcO1pi2.js">
+    <link rel="stylesheet" crossorigin href="./assets/main-IOTNK76S.css">
+    <meta name="app-build" content="fb048404-70e9-42b6-aa17-237259ec6430">
     <link rel="manifest" href="manifest.webmanifest">
     <meta name="theme-color" content="#f5f5f5">
     <meta name="mobile-web-app-capable" content="yes">
@@ -74,6 +74,12 @@
         <button id="update-now" type="button" data-i18n="update.now"></button>
         <span id="update-notice-status" role="status"></span>
       </aside>
+      <dialog id="introduction-dialog" class="app-panel" aria-labelledby="introduction-welcome">
+        <img id="introduction-logo" alt="" hidden /><h2 id="introduction-welcome"></h2><p data-i18n="onboarding.body"></p>
+        <section id="introduction-pilot" hidden><h3 data-i18n="pilot.title"></h3><p data-i18n="pilot.body"></p><a data-feedback class="contact-button feedback-button" data-i18n="settings.contact"></a></section>
+        <button id="introduction-start" class="primary" data-i18n="onboarding.start"></button>
+      </dialog>
+      <aside id="pilot-invitation" hidden><h2 data-i18n="pilot.title"></h2><p data-i18n="pilot.body"></p><a data-feedback class="contact-button feedback-button" data-i18n="settings.contact"></a><button id="pilot-dismiss" class="secondary" data-i18n="pilot.dismiss"></button></aside>
       <dialog id="handbook-panel" class="app-panel full-view" aria-labelledby="handbook-title" hidden>
         <div class="panel-heading"><button id="handbook-back" class="panel-back" type="button" data-i18n="settings.back"></button><h2 id="handbook-title" data-i18n="handbook.title"></h2><button id="handbook-close" class="panel-close" type="button" data-i18n-attrs="aria-label:ui.close"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m6 6 12 12M18 6 6 18"/></svg></button></div>
         <div id="handbook-content"></div>
@@ -106,6 +112,8 @@
           <label for="language" data-i18n="settings.language"></label>
           <select id="language"></select>
         </div>
+        <a id="pilot-feedback" data-feedback class="contact-button feedback-button feedback-settings" hidden><span data-i18n="settings.contact"></span><span class="feedback-subtitle" data-i18n="feedback.help"></span></a>
+        <button id="introduction-toggle" class="settings-link" type="button" data-i18n="onboarding.title"></button>
         <button id="circuit-editor-toggle" aria-haspopup="dialog" aria-controls="circuit-editor-panel" class="settings-link" type="button" data-i18n="circuit.title" hidden></button>
         <button id="handbook-toggle" class="settings-link" type="button" aria-controls="handbook-panel" aria-expanded="false" data-i18n="handbook.title"></button>
         <button id="data-toggle" aria-haspopup="dialog" aria-controls="data-panel" class="settings-link" type="button" data-i18n="backup.tools" hidden></button>
@@ -119,7 +127,7 @@
               <button id="check-updates" type="button" data-i18n="update.check"></button>
             </div>
             <button id="install-app" type="button" data-i18n="install.button" aria-controls="install-text" aria-expanded="false" hidden></button>
-            <a id="contact-app" class="contact-button" href="mailto:hello@alanocinneide.com" data-i18n="settings.contact"></a>
+            <a id="contact-app" class="contact-button" data-i18n="feedback.label"></a>
           </div>
           <p id="update-status" class="muted" role="status"></p>
           <p id="install-text" class="muted" hidden></p>
