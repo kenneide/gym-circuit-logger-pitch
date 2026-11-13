@@ -5,10 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="color-scheme" content="light dark" />
     <title></title>
-    <script type="module" crossorigin src="./assets/main-CsMMhGWL.js"></script>
-    <link rel="modulepreload" crossorigin href="./assets/i18n-yj_oRwv-.js">
-    <link rel="stylesheet" crossorigin href="./assets/main-BFwjfcbl.css">
-    <meta name="app-build" content="ded89cb0-7426-4f9d-ab2c-e5e8f4e8bccd">
+    <script type="module" crossorigin src="./assets/main-DjelnxQr.js"></script>
+    <link rel="modulepreload" crossorigin href="./assets/i18n-DJYp_iWV.js">
+    <link rel="stylesheet" crossorigin href="./assets/main-lJszxdmc.css">
+    <meta name="app-build" content="a7b0da8f-4ade-4a85-92fe-76a422405625">
     <link rel="manifest" href="manifest.webmanifest">
     <meta name="theme-color" content="#f5f5f5">
     <meta name="mobile-web-app-capable" content="yes">
@@ -74,6 +74,10 @@
         <button id="update-now" type="button" data-i18n="update.now"></button>
         <span id="update-notice-status" role="status"></span>
       </aside>
+      <dialog id="handbook-panel" class="app-panel full-view" aria-labelledby="handbook-title" hidden>
+        <div class="panel-heading"><button id="handbook-back" class="panel-back" type="button" data-i18n="settings.back"></button><h2 id="handbook-title" data-i18n="handbook.title"></h2><button id="handbook-close" class="panel-close" type="button" data-i18n-attrs="aria-label:ui.close"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m6 6 12 12M18 6 6 18"/></svg></button></div>
+        <div id="handbook-content"></div>
+      </dialog>
       <dialog
         id="settings-panel"
         class="app-panel full-view"
@@ -103,7 +107,8 @@
           <select id="language"></select>
         </div>
         <button id="circuit-editor-toggle" aria-haspopup="dialog" aria-controls="circuit-editor-panel" class="settings-link" type="button" data-i18n="circuit.title" hidden></button>
-        <button id="data-toggle" aria-haspopup="dialog" aria-controls="data-panel" class="settings-link" type="button" data-i18n="backup.title" hidden></button>
+        <button id="handbook-toggle" class="settings-link" type="button" aria-controls="handbook-panel" aria-expanded="false" data-i18n="handbook.title"></button>
+        <button id="data-toggle" aria-haspopup="dialog" aria-controls="data-panel" class="settings-link" type="button" data-i18n="backup.tools" hidden></button>
         <section id="app-info">
           <div class="version-row">
             <div id="update-settings" class="version-details" hidden>
@@ -141,15 +146,15 @@
             <p class="muted" data-i18n="progression.purpose"></p>
             <div id="circuit-progression"></div>
           </section>
-          <section class="circuit-section" aria-labelledby="circuit-rounds-heading">
-            <h3 id="circuit-rounds-heading" data-i18n="circuit.rounds"></h3>
-            <p id="circuit-rounds-description" class="muted" data-i18n="circuit.roundsDescription"></p>
-            <select id="circuit-rounds" aria-labelledby="circuit-rounds-heading" aria-describedby="circuit-rounds-description"></select>
-          </section>
           <section class="circuit-section" aria-labelledby="circuit-exercises-heading">
             <h3 id="circuit-exercises-heading" data-i18n="circuit.exercisesTitle"></h3>
             <p class="muted" data-i18n="circuit.exercisesDescription"></p>
             <ol id="circuit-list" class="circuit-list"></ol>
+          </section>
+          <section class="circuit-section" aria-labelledby="circuit-rounds-heading">
+            <h3 id="circuit-rounds-heading" data-i18n="circuit.rounds"></h3>
+            <p id="circuit-rounds-description" class="muted" data-i18n="circuit.roundsDescription"></p>
+            <select id="circuit-rounds" aria-labelledby="circuit-rounds-heading" aria-describedby="circuit-rounds-description"></select>
           </section>
           <div class="circuit-editor-actions">
             <button id="circuit-save" type="button" class="primary" data-i18n="circuit.save"></button>
@@ -159,43 +164,20 @@
           <p id="circuit-status" class="muted" role="status"></p>
         </section>
       </dialog>
-      <dialog id="data-panel" class="app-panel full-view" data-i18n-attrs="aria-label:backup.title" hidden>
+      <dialog id="data-panel" class="app-panel full-view" data-i18n-attrs="aria-label:backup.tools" hidden>
         <div class="panel-heading">
           <button id="data-back" class="panel-back" type="button" data-i18n="settings.back"></button>
-          <h2 data-i18n="backup.title"></h2>
+          <h2 data-i18n="backup.tools"></h2>
           <button id="data-close" class="panel-close" type="button" data-i18n-attrs="aria-label:ui.close"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m6 6 12 12M18 6 6 18"/></svg></button>
         </div>
         <section id="backup-help" hidden>
 
           <p class="muted" data-i18n="backup.help"></p>
           <div class="data-actions">
-            <div>
-              <button id="export-csv" type="button" data-i18n="backup.csv" aria-describedby="csv-help"></button>
-              <p id="csv-help" class="muted" data-i18n="backup.csvHelp"></p>
-            </div>
-            <div>
-              <button
-                id="export-backup"
-                type="button"
-                data-i18n="backup.save"
-                aria-describedby="full-backup-help"
-              ></button>
-              <p id="full-backup-help" class="muted" data-i18n="backup.saveHelp"></p>
-            </div>
-            <div>
-              <button
-                id="restore-backup"
-                type="button"
-                data-i18n="backup.restore"
-                aria-describedby="restore-help"
-              ></button>
-              <p id="restore-help" class="muted" data-i18n="backup.restoreHelp"></p>
-            </div>
+            <button id="export-backup" type="button" data-i18n="backup.save"></button>
+            <button id="restore-backup" type="button" data-i18n="backup.restore"></button>
+            <button id="export-csv" type="button" data-i18n="backup.csv"></button>
           </div>
-          <p id="backup-last" class="muted"></p>
-          <p class="muted" data-i18n="backup.exportHelp"></p>
-          <p id="backup-protection" class="muted"></p>
-          <p class="muted" data-i18n="backup.protectionHelp"></p>
           <div id="backup-review" hidden role="region" aria-labelledby="backup-review-title">
             <h3 id="backup-review-title" data-i18n="backup.review"></h3>
             <p data-i18n="backup.ownFiles" class="muted"></p>
@@ -213,14 +195,6 @@
           </div>
           <input id="import-backup" type="file" accept="application/json,.json" hidden />
           <p id="backup-status" class="muted" role="status"></p>
-        </section>
-        <section class="saving-guidance">
-          <h3 data-i18n="help.title"></h3>
-          <p id="saving-help" class="muted"></p>
-          <p id="connection-help" class="muted"></p>
-          <button id="refresh-settings" type="button" data-i18n="data.refresh" aria-describedby="check-saved-help"></button>
-          <p id="check-saved-help" class="muted" data-i18n="help.checkSaved"></p>
-          <p id="data-refresh-status" role="status" aria-live="polite"></p>
         </section>
       </dialog>
       <dialog
@@ -276,7 +250,7 @@
         <button id="circuit-toggle" class="circuit-toggle" type="button" aria-haspopup="dialog" data-i18n="ui.circuit"></button>
         <div class="card exercise-card" id="exercise-card">
           <div id="position" class="muted"></div>
-          <h2 id="exercise"></h2>
+          <div class="exercise-card-heading"><h2 id="exercise"></h2><button id="card-help-toggle" class="card-info" type="button" aria-haspopup="dialog" aria-controls="card-help-panel" data-i18n-attrs="aria-label:cardHelp.open"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 11v6"/><circle cx="12" cy="7" r=".5"/></svg></button></div>
           <div class="exercise-guidance">
             <p id="progression-hint"></p>
             <div id="setup-context" class="setup-context">
@@ -428,6 +402,7 @@
       <h2 id="completion-title" data-i18n="completion.title"></h2>
       <p id="completion-message" data-i18n="completion.message"></p>
       <p id="finish-missing" hidden></p>
+      <p id="completion-coaching" role="status"></p>
       <p id="completion-summary" class="completion-summary"></p>
       <aside id="install-completion" class="install-reminder" hidden>
         <button id="install-completion-button" type="button" data-i18n="install.button" aria-controls="install-completion-text" aria-expanded="false"></button>
@@ -437,11 +412,19 @@
       <button id="completion-finish" data-i18n="completion.finish"></button>
       <button id="completion-review" data-i18n="completion.review"></button>
     </dialog>
+    <dialog id="card-help-panel" class="app-panel full-view" aria-labelledby="card-help-title" hidden>
+      <div class="panel-heading">
+        <h2 id="card-help-title" data-i18n="handbook.card"></h2>
+        <button id="card-help-close" class="panel-close" type="button" data-i18n-attrs="aria-label:ui.close"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m6 6 12 12M18 6 6 18"/></svg></button>
+      </div>
+      <div id="card-help-content"></div>
+    </dialog>
     <dialog id="confirmation-dialog" class="confirmation-dialog" aria-labelledby="confirmation-title" aria-describedby="confirmation-message">
       <h2 id="confirmation-title"></h2>
       <p id="confirmation-message"></p>
       <button id="confirmation-accept" class="primary" type="button"></button>
       <button id="confirmation-cancel" class="secondary" type="button" autofocus data-i18n="confirmation.cancel"></button>
     </dialog>
-  </body>
+  <div id="coaching-toast" class="coaching-toast" hidden><span id="coaching-text" role="status"></span><button id="coaching-dismiss" data-i18n="progression.cancel"></button></div>
+</body>
 </html>
