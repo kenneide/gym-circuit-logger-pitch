@@ -1,7 +1,7 @@
-const BUILD_ID = "bb4102e6-e3a6-40ba-b68f-6c6e65c01bd6";
+const BUILD_ID = "6e963dd1-6205-4ad0-b085-132cd7d66a0d";
 const PREFIX = "gym-logger-demo-";
-const CACHE = "gym-logger-demo-1f9fee2b5f8e";
-const FILES = ["./","assets/i18n-pGmWG4KM.js","assets/main-AFGkr9u9.js","assets/main-D3mIL1NU.css","assets/poster-DRz_Rifp.css","assets/poster-a2eqMRfP.js","font-license.txt","icon.png","manifest.webmanifest","poster.html","scan.html"];
+const CACHE = "gym-logger-demo-2a3db433eeca";
+const FILES = ["./","assets/i18n-pGmWG4KM.js","assets/main-C4MTSho0.js","assets/main-D3mIL1NU.css","assets/poster-DRz_Rifp.css","assets/poster-a2eqMRfP.js","font-license.txt","icon.png","manifest.webmanifest","poster.html","scan.html"];
 self.addEventListener('install', (event) => {
   event.waitUntil(caches.open(CACHE).then((cache) => Promise.all(FILES.map(async (file) => {
     const url = new URL(file, self.registration.scope);
@@ -10,7 +10,10 @@ self.addEventListener('install', (event) => {
     if (!response.ok) throw new Error('Incomplete application download');
     if (file === './' && !(await response.clone().text()).includes('content="' + BUILD_ID + '"'))
       throw new Error('Application deployment is not ready');
-    await cache.put(file, response);
+    // Pages canonicalizes .html URLs. Cached redirected responses cannot satisfy
+    // navigation requests with redirect mode manual; retain the body/headers only.
+    const cached = response.redirected ? new Response(response.body, { status: response.status, statusText: response.statusText, headers: response.headers }) : response;
+    await cache.put(file, cached);
   }))));
 });
 self.addEventListener('message', (event) => {

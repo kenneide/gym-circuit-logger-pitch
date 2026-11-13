@@ -1,7 +1,7 @@
-const BUILD_ID = "87c99d54-0eb0-49e5-8a8d-88b49921038b";
+const BUILD_ID = "0011cd30-ddd8-4a23-b0a7-984e76cc46b1";
 const PREFIX = "gym-logger-haguegym-";
-const CACHE = "gym-logger-haguegym-8b8c6bc02931";
-const FILES = ["./","assets/brand-ZeioQVIl.js","assets/i18n-r7LQpaM_.js","assets/main-Cf81OFdQ.js","assets/main-D3mIL1NU.css","assets/poster-DCQ2jSbi.js","assets/poster-DRz_Rifp.css","assets/privacy-B6mYs_ec.css","assets/privacy-BVL90AUp.js","icon.png","manifest.webmanifest","poster.html","privacy.html","scan.html"];
+const CACHE = "gym-logger-haguegym-6a7849bec198";
+const FILES = ["./","assets/brand-ZeioQVIl.js","assets/i18n-r7LQpaM_.js","assets/main-B_sY3njA.js","assets/main-D3mIL1NU.css","assets/poster-DCQ2jSbi.js","assets/poster-DRz_Rifp.css","assets/privacy-B6mYs_ec.css","assets/privacy-BVL90AUp.js","icon.png","manifest.webmanifest","poster.html","privacy.html","scan.html"];
 self.addEventListener('install', (event) => {
   event.waitUntil(caches.open(CACHE).then((cache) => Promise.all(FILES.map(async (file) => {
     const url = new URL(file, self.registration.scope);
@@ -10,7 +10,10 @@ self.addEventListener('install', (event) => {
     if (!response.ok) throw new Error('Incomplete application download');
     if (file === './' && !(await response.clone().text()).includes('content="' + BUILD_ID + '"'))
       throw new Error('Application deployment is not ready');
-    await cache.put(file, response);
+    // Pages canonicalizes .html URLs. Cached redirected responses cannot satisfy
+    // navigation requests with redirect mode manual; retain the body/headers only.
+    const cached = response.redirected ? new Response(response.body, { status: response.status, statusText: response.statusText, headers: response.headers }) : response;
+    await cache.put(file, cached);
   }))));
 });
 self.addEventListener('message', (event) => {
