@@ -1,7 +1,7 @@
-const BUILD_ID = "e3bdea87-e884-4feb-bfdb-8f2110d2152e";
+const BUILD_ID = "67b1a276-4e8c-43b7-9670-50eea0f37b8a";
 const PREFIX = "gym-logger-demo-";
-const CACHE = "gym-logger-demo-0b0b14ff805a";
-const FILES = ["./","assets/i18n-D_zFPYmz.js","assets/main-0eTJtuFM.css","assets/main-HOGf1TaX.js","assets/poster-C4ZGaSKE.js","assets/poster-DRz_Rifp.css","font-license.txt","icon.png","manifest.webmanifest","poster.html","scan.html"];
+const CACHE = "gym-logger-demo-b054b2bee6da";
+const FILES = ["./","assets/i18n-CpSeqkvX.js","assets/main-DpT0ZMZP.js","assets/main-MHUGY-Cc.css","assets/poster-CRyUR_kU.js","assets/poster-DRz_Rifp.css","font-license.txt","icon.png","manifest.webmanifest","poster.html","scan.html"];
 self.addEventListener('install', (event) => {
   event.waitUntil(caches.open(CACHE).then((cache) => Promise.all(FILES.map(async (file) => {
     const url = new URL(file, self.registration.scope);
@@ -38,6 +38,7 @@ self.addEventListener('fetch', (event) => {
   }
   // Pages (the app, the poster) come from their own cached copy; an uncached page falls back
   // to the app shell only when the network is unavailable.
+  if (url.pathname.startsWith(new URL('admin/', self.registration.scope).pathname)) return;
   const navigate = request.mode === 'navigate';
   event.respondWith(
     caches.open(CACHE).then((cache) => cache.match(request, { ignoreSearch: navigate })).then(

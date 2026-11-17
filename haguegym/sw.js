@@ -1,7 +1,7 @@
-const BUILD_ID = "715d0f2c-c80f-4a6c-b1dc-7ce37d2e9d59";
+const BUILD_ID = "b46babac-c832-4b05-8530-c2887f4d95a7";
 const PREFIX = "gym-logger-haguegym-";
-const CACHE = "gym-logger-haguegym-7b83de906e5e";
-const FILES = ["./","assets/brand-Crjp6onM.js","assets/i18n-DCF_fckG.js","assets/main-0eTJtuFM.css","assets/main-p0RhTprQ.js","assets/poster-CNkqb2fH.js","assets/poster-DRz_Rifp.css","assets/privacy-B6mYs_ec.css","assets/privacy-CMz54R0r.js","icon.png","manifest.webmanifest","poster.html","privacy.html","scan.html"];
+const CACHE = "gym-logger-haguegym-02d5020bb29e";
+const FILES = ["./","assets/brand-mCuS0cpv.js","assets/i18n-Bx4d5bLj.js","assets/main-DeVKBRKU.js","assets/main-MHUGY-Cc.css","assets/poster-BdaMcJNu.js","assets/poster-DRz_Rifp.css","assets/privacy-B6mYs_ec.css","assets/privacy-CBHYZoa-.js","icon.png","manifest.webmanifest","poster.html","privacy.html","scan.html"];
 self.addEventListener('install', (event) => {
   event.waitUntil(caches.open(CACHE).then((cache) => Promise.all(FILES.map(async (file) => {
     const url = new URL(file, self.registration.scope);
@@ -38,6 +38,7 @@ self.addEventListener('fetch', (event) => {
   }
   // Pages (the app, the poster) come from their own cached copy; an uncached page falls back
   // to the app shell only when the network is unavailable.
+  if (url.pathname.startsWith(new URL('admin/', self.registration.scope).pathname)) return;
   const navigate = request.mode === 'navigate';
   event.respondWith(
     caches.open(CACHE).then((cache) => cache.match(request, { ignoreSearch: navigate })).then(
