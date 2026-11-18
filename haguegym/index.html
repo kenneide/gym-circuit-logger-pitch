@@ -5,11 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="color-scheme" content="light dark" />
     <title></title>
-    <script type="module" crossorigin src="./assets/main-DeVKBRKU.js"></script>
-    <link rel="modulepreload" crossorigin href="./assets/i18n-Bx4d5bLj.js">
-    <link rel="modulepreload" crossorigin href="./assets/brand-mCuS0cpv.js">
-    <link rel="stylesheet" crossorigin href="./assets/main-MHUGY-Cc.css">
-    <meta name="app-build" content="b46babac-c832-4b05-8530-c2887f4d95a7">
+    <script type="module" crossorigin src="./assets/main-DTpmQ3wt.js"></script>
+    <link rel="modulepreload" crossorigin href="./assets/i18n-CuvurxTg.js">
+    <link rel="modulepreload" crossorigin href="./assets/brand-B8vRD1hW.js">
+    <link rel="stylesheet" crossorigin href="./assets/main-ixdzErWp.css">
+    <link rel="stylesheet" crossorigin href="./assets/dropdown-B_q1S7L5.css">
+    <meta name="app-build" content="1d63b063-c04f-4511-b0a7-0a7d880c07a3">
     <link rel="manifest" href="manifest.webmanifest">
     <meta name="theme-color" content="#f5f5f5">
     <meta name="mobile-web-app-capable" content="yes">
@@ -243,9 +244,13 @@
       <div id="status" role="status" aria-live="polite"></div>
       <button id="retry" class="secondary" data-i18n="workout.retry" hidden></button>
       <button id="refresh" class="secondary" data-i18n="workout.refresh" aria-describedby="status" hidden></button>
+      <p id="workout-circuit-name" hidden></p>
       <div id="start-options" hidden>
+        <label for="circuit-choices" data-i18n="circuits.choose"></label>
+        <select id="circuit-choices"></select>
         <label for="starting-exercise" data-i18n="workout.startingExercise"></label>
         <select id="starting-exercise"></select>
+
       </div>
       <button id="start" class="primary" data-i18n="workout.start" hidden></button>
       <div id="install-home-placement" hidden>
