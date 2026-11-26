@@ -1,0 +1,2 @@
+const __vite__mapDeps=(i,m=__vite__mapDeps,d=(m.f||(m.f=["./privacy-CU0oH1zM.js","./gym-8MfdB-Y3.js","./i18n-HVsVTrEb.js","./brand-CYUj-4RR.js","./privacy-B6mYs_ec.css"])))=>i.map(i=>d[i]);
+import{n as e,t}from"./preload-helper-BV0nmD_o.js";e(),await t(()=>import(`./privacy-CU0oH1zM.js`),__vite__mapDeps([0,1,2,3,4]),import.meta.url),await document.fonts.ready,document.documentElement.dataset.storyboard=`ready`,parent.postMessage({type:`storyboard-ready`,scenario:`privacy`},location.origin);
