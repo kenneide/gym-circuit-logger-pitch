@@ -1,7 +1,7 @@
-const BUILD_ID = "226b5447-ee4a-492c-b1c4-7f4ffaaef962";
+const BUILD_ID = "1d181874-8246-47b3-8399-250760a1afc7";
 const PREFIX = "gym-logger-haguegym-";
-const CACHE = "gym-logger-haguegym-10dca6c3bde6";
-const FILES = ["./","assets/brand-Bnhg5lMN.js","assets/dropdown-B_q1S7L5.css","assets/i18n-R9f0d-wa.js","assets/main-BmvMq-cG.css","assets/main-DCbZJM35.js","assets/poster-BsDGgI_x.js","assets/poster-DRz_Rifp.css","assets/privacy-B6mYs_ec.css","assets/privacy-o0uUXxOS.js","icon.png","manifest.webmanifest","poster.html","privacy.html","scan.html"];
+const CACHE = "gym-logger-haguegym-8cd0f07f8d1f";
+const FILES = ["./","assets/brand-DtbLA3GL.js","assets/dropdown-B_q1S7L5.css","assets/i18n-C4Nxgpru.js","assets/main-CjEJvVTr.js","assets/main-DGyIXcmm.css","assets/poster-DRz_Rifp.css","assets/poster-UtsJlkRf.js","assets/privacy-B6mYs_ec.css","assets/privacy-ljuLWCAw.js","icon.png","manifest.webmanifest","poster.html","privacy.html","scan.html"];
 self.addEventListener('install', (event) => {
   event.waitUntil(caches.open(CACHE).then((cache) => Promise.all(FILES.map(async (file) => {
     const url = new URL(file, self.registration.scope);
